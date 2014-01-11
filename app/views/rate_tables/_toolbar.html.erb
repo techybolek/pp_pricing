@@ -1,0 +1,35 @@
+<div style="height:50px;">
+  <div class="container toolbar affix-top" data-spy="affix" data-offset-top="307">
+    <div class="btn-toolbar touching_toolbars span11 no-left-margin">
+      <div class="btn-group">
+        <button class="btn" data-role="add-row">
+          <i class="icon-th-list"></i> Add Row
+        </button>
+        <button class="btn" data-role="edit-selected-rates">
+          <i class="icon-pencil"></i> Edit Selected
+        </button>
+        <button class="btn" data-role="delete-selected-rates">
+          <i class="icon-trash"></i> Delete Selected
+        </button>
+        <%= link_to(rate_table_path(@table), :method => :delete, :confirm => "Are you sure you want to delete this rate table and all its rows?", :class => "btn") do %>
+          <i class="icon-trash"></i> Delete Rate Table
+        <% end %>
+        <%= link_to rate_table_rate_rows_path(@table), :class => "btn" do %>
+          <i class="icon-copy"></i> Find Rate Rows
+        <% end %>
+        <button class="btn" data-role="reset-rate-table" title="Reset table to last saved state (Ctrl+Z)">
+          <i class="icon-undo"></i> Reset
+        </button>
+        <button class="btn btn-success"
+                id="save-rate-table"
+                data-url="<%= rate_table_update_path(@table)%>"
+                title="Save all changes to the rate table (Ctrl+S)">
+          <i class="icon-hdd"></i> Save
+        </button>
+      </div>
+    </div>
+    <div class="btn-toolbar span">
+      <div id="rates-loading" class="loading hide"></div>
+    </div>
+ </div>
+</div>

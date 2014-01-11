@@ -1,0 +1,26 @@
+<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+  Pricing
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+  <!-- Price Plan submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Price Plan
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=price_plans_path%>"><i class="icon-search"></i> Search</a></li>
+      <li><a href="<%=new_price_plan_path%>"><i class="icon-plus"></i> Create</a></li>
+    </ul>
+  </li>
+  <!-- TMA submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Tariff Model Area
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=tariff_model_areas_path%>"><i class="icon-search"></i> Search</a></li>
+      <li><a href="<%=new_tariff_model_area_path%>"><i class="icon-plus"></i> Create</a></li>
+    </ul>
+  </li>
+</ul>

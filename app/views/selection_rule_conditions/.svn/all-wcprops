@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions
+END
+_condition.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/_condition.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/index.html.erb
+END
+_rules.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/_rules.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/selection_rule_conditions/show.html.erb
+END

@@ -1,0 +1,63 @@
+<% content_for(:page_title) do "Templates" end %>
+
+<h2>Search Rate Table Templates</h2>
+
+<div class="well">
+
+  <form class="span5 form-horizontal search" method="get">
+    <input type="text"
+      class="input-large"
+      placeholder="Usage Template Code"
+      name="template_code"
+      value="<%=session[:usage_template_code]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Usage Template Name"
+      name="template_name"
+      value="<%=session[:usage_template_name]%>" >
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th/>
+        <th><%=sortable @templates, "Code", "template_code" %></th>
+        <th><%=sortable @templates, "Name", "template_name" %></th>
+        <th><%=sortable @templates, "Effective Date", "effective_date" %></th>
+        <th><%=sortable @templates, "Status", "effective_status" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @templates.each do |template| %>
+        <tr>
+	  <td>
+            <%= link_to template_path(template.template_id),
+              method: :delete, data: { confirm: "Are you sure you want to completely remove this template with its definition?" } do %>
+              <i class="icon-trash hover"> </i>
+            <% end %>
+	  </td>
+          <td><%= link_to template.template_code, template_path(:id=>template.template_id) %></td>
+          <td><%= link_to template.template_name, template_path(:id=>template.template_id) %></td>
+          <td><%= template.effective_date %></td>
+          <td><%= template.effective_status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:templates, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:template_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @templates %>
+  </div>
+</div>

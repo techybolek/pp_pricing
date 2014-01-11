@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/18713/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari
+END
+_gap.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_gap.html.erb
+END
+_prev_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_prev_page.html.erb
+END
+_next_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_next_page.html.erb
+END
+_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_page.html.erb
+END
+_last_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_last_page.html.erb
+END
+_first_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/tapestry/!svn/ver/18436/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_first_page.html.erb
+END
+_paginator.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18713/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/kaminari/_paginator.html.erb
+END

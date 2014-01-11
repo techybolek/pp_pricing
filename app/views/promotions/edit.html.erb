@@ -1,0 +1,62 @@
+<% content_for(:page_title) do @promotion.promotion_code + " | Promotion" end %>
+
+<div class="container">
+  <div style="height:60px;">
+    <div class="affix-top" data-spy="affix" data-offset-top="128" style="z-index:999; margin: 0px auto; background-color: #F6F4F0">
+      <div class="span">
+        <h2>Promotion <small><%= @promotion.promotion_code %> - <%= @promotion.promotion_name %> - <%= alternate_status(@promotion.promotion_status) %></small></h2>
+      </div>
+      
+      <div class="pull-right" style:"margin-left: auto;">
+        <%= render "toolbar" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  
+  <!-- General Promotion Data -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      General Promotion Data
+    </h4>
+    <div class="collapse in">
+      <%= render "general_promotion_data" %>
+    </div>
+  </div>
+  
+  <!-- Application -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Application
+    </h4>
+    <div class="collapse in">
+      <%= render "application" %>
+    </div>
+  </div>
+  
+  <!-- Promotion Term View -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Promotion Term View
+    </h4>
+    <div class="collapse in">
+      <%= render "promotion_term" %>
+    </div>
+  </div>
+  
+  <!-- Associated Pricing Structures -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Associated Pricing Structures
+    </h4>
+    <div class="collapse in">
+      <%= render "associated_pricing_structures" %>
+    </div>
+  </div>
+</form>

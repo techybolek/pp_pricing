@@ -1,0 +1,26 @@
+<div class="container toolbar">
+  <div class="span3">
+    <div class="btn-toolbar span1 no-left-margin">
+      <div id="pricing-structure-loading" class="loading hide"></div>
+    </div>
+    
+    <div class="btn-toolbar touching_toolbars">
+      <div class="btn-group pull-right">
+        <button class="btn" id="cancel-pricing-structure" title="Cancel all unsaved changes">
+          <i class="icon-undo"></i> Cancel
+        </button>
+        <button id="save-pricing-structure"
+                class="btn btn-success"
+                title="Save all changes"
+                data-save-url="<%= edit_pricing_structure_path(
+                  @structure.pricing_structure_code,
+                  product: @structure.product_code,
+                  version: @structure.product_version_code
+                )%>">
+          <i class="icon-hdd"></i> Save
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,32 @@
+<% characteristic_value = @characteristic.default_characteristic_value %>
+<% min_value = characteristic_value.c_minimum_value if characteristic_value %>
+<% max_value = characteristic_value.c_maximum_value if characteristic_value %>
+<% default_value = characteristic_value.c_default_value if characteristic_value %>
+<% measure_unit_code = characteristic_value.measure_unit_code if characteristic_value%>
+
+<div class="controls controls-row">
+  <!-- Minimum -->
+  <div class="span">
+    <label for="service_characteristic_characteristic_value_c_minimum_value">Minimum</label>
+    <%= text_field_tag("service_characteristic[characteristic_value][c_minimum_value]", min_value, :class=>"span2", :placeholder=>"Minimum", :maxlength=>"30")%>
+  </div>
+  
+  <!-- Maximum -->
+  <div class="span">
+    <label for="service_characteristic_characteristic_value_c_maximum_value">Maximum</label>
+    <%= text_field_tag("service_characteristic[characteristic_value][c_maximum_value]", max_value, :class=>"span2", :placeholder=>"Maximum", :maxlength=>"30")%>
+  </div>
+  
+  <!-- Default -->
+  <div class="span">
+    <label for="service_characteristic_characteristic_value_c_default_value">Default</label>
+    <%= text_field_tag("service_characteristic[characteristic_value][c_default_value]", default_value, :class=>"span2", :placeholder=>"Default", :maxlength=>"30")%>
+  </div>
+  
+  <!-- Measure Unit -->
+  <div class="span">
+    <label for="service_characteristic_characteristic_value_measure_unit_code">Measure Unit</label>
+    <%= select_tag "service_characteristic[characteristic_value][measure_unit_code]", options_from_collection_for_select(MeasureUnit.all, :measure_unit_code, :name, measure_unit_code),
+                   {class: "span3 no-left-margin", include_blank: true, data: {:role => "select2"}} %>
+  </div>
+</div>

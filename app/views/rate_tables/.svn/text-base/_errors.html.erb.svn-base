@@ -1,0 +1,7 @@
+<% if @table.errors.any? %>
+  <ul class="text-error">
+    <% @table.errors.each do |error, message| %>
+      <li><%= RateTable.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

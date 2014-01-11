@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/19131/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/tapestry/!svn/ver/19131/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages/index.html.erb
+END
+_header.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/18529/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages/_header.html.erb
+END
+_zonal_components.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/tapestry/!svn/ver/18588/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages/_zonal_components.html.erb
+END
+_tariff_zones.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/tapestry/!svn/ver/18529/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages/_tariff_zones.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/zonal_coverages/show.html.erb
+END

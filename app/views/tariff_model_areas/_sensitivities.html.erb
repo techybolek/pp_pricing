@@ -1,0 +1,50 @@
+<table class="padded">
+  <tr>
+    <th>Zonal coverage</th><th>Service coverage</th><th>Tariff Week</th>
+  </tr>
+  <tr>
+    <td class="some-padding">
+      <%= select_tag "tariff_model_area[zonal_coverage_code]",
+                     options_from_collection_for_select(ZonalCoverage.all(:order => "zonal_coverage_code"), 'zonal_coverage_code', 'code_and_name', @tma.zonal_coverage_code),
+                     data: {:role => "select2"},
+                     :include_blank => true,
+                     :disabled => !@tma.rate_table_id.nil? && !@tma.rate_table_id.empty? %>
+    </td><td class="some-padding">
+      <%= select_tag "tariff_model_area[service_coverage_code]",
+                     options_from_collection_for_select(ServiceCoverage.all(:order => "service_coverage_code"), 'service_coverage_code', 'code_and_name', @tma.service_coverage_code),
+                     data: {:role => "select2"},
+                     :include_blank => true,
+                     :disabled => !@tma.rate_table_id.nil? && !@tma.rate_table_id.empty? %>
+    </td><td class="some-padding">
+      <%= select_tag "tariff_model_area[tariff_week_code]",
+                     options_from_collection_for_select(TariffWeek.all(:order => "tariff_week_code"), 'tariff_week_code', 'code_and_name', @tma.tariff_week_code),
+                     data: {:role => "select2"},
+                     :include_blank => true,
+                     :disabled => !@tma.rate_table_id.nil? && !@tma.rate_table_id.empty? %>
+    </td>
+  </tr>
+  
+  <tr>
+    <th>Sensitivity</th><th>Tariff Tier or Taper</th><th>Rate table</th>
+  </tr>
+  <tr>
+    <td class="some-padding">
+      <%= select_tag "tariff_model_area[sensitivity_code]",
+                     options_from_collection_for_select(Sensitivity.all(:order=>"sensitivity_code"), 'sensitivity_code', 'code_and_name', @tma.sensitivity_code),
+                     data: {:role => "select2"},
+                     :include_blank => true,
+                     :disabled => !@tma.rate_table_id.nil? && !@tma.rate_table_id.empty? %>
+    </td><td class="some-padding">
+      <%= select_tag "tariff_model_area[tariff_tier_taper_code]",
+                     options_from_collection_for_select(TariffTierTaper.all(:order=>"tariff_tier_taper_code"), 'tariff_tier_taper_code', 'code_and_name', @tma.tariff_tier_taper_code),
+                     data: {:role => "select2"},
+                     :include_blank => true,
+                     :disabled => !@tma.rate_table_id.nil? && !@tma.rate_table_id.empty? %>
+    </td><td class="some-padding">
+      <%= select_tag "tariff_model_area[rate_table_id]",
+                     options_from_collection_for_select(RateTable.all(:order => "title"), 'rate_table_id', 'title', @tma.rate_table_id),
+                     data: {:role => "select2"},
+                     :include_blank => true  %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,27 @@
+<div class="span5">
+<h4>Zonal Components</h4>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>
+        Originating Point
+      </th>
+      <th>
+        Terminating Point
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tz.zonal_components.each do |zcom| %>
+    <tr>
+      <td>
+        <%= zcom.originating_point %>
+      </td>
+      <td>
+        <%= zcom.terminating_point %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

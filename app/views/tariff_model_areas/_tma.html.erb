@@ -1,0 +1,121 @@
+<div class="span">
+  
+  <%= hidden_field_tag 'tariff_model_area[tariff_model_area_version_id]', @tma.tariff_model_area_version_id %>
+  
+  <div clas="controls controls-row">
+    <div class="span">
+      <label for="tariff_model_area_code">TMA Code</label>
+      <input type="text"
+             class="span2"
+             name="tariff_model_area[tariff_model_area_code]"
+             id="tariff_model_area_code"
+             maxlength="5"
+             required="required"
+             <%= 'readonly="readonly"' if @tma.persisted? %>
+             value="<%= @tma.tariff_model_area_code %>">
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_name">Name</label>
+      <input type="text"
+             class="span4"
+             name="tariff_model_area[name]"
+             id="tariff_model_area_name"
+             maxlength="30"
+             required="required"
+             value="<%= @tma.name %>">
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_effective_date">Effective Date</label>
+      <input class="span2"
+             data-date-format="mm-dd-yyyy"
+             data-role="datepicker"
+             id="tariff_model_area_effective_date"
+             name="tariff_model_area[effective_date]"
+             type="text"
+             value="<%= @tma.effective_date.to_date if @tma.effective_date %>">
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_effective_date">Effective Status</label>
+      <input class="span2"
+             id="tariff_model_area_effective_status"
+             name="tariff_model_area[effective_status]"
+             type="text"
+             readonly="readonly"
+             required="required"
+             value="<%= @tma.effective_status %>">
+    </div>
+  </div>
+  
+  <div clas="controls controls-row">
+    <div class="span">
+      <label for="tariff_model_area_calculation_id">Calculation</label>
+      
+      <div class="span no-left-margin">
+        <select class="span3 no-left-margin" data-description-target="#calculation-description" data-role="select2" id="tariff_model_area_calculation_id" name="tariff_model_area[calculation_id]">
+          <option value=""></option>
+          <% selected_description = "" %>
+          <% Calculation.where("calculation_indicator != 'T'").order("calculation_name").each do |calculation| %>
+            <option value="<%= calculation.calculation_id %>"
+                    data-description="<%= calculation.descriptive_text %>"
+                    <%= 'selected="selected"'.html_safe if @tma.calculation_id == calculation.calculation_id %>>
+              <%= calculation.calculation_name %>
+            </option>
+            <% selected_description = calculation.descriptive_text if @tma.calculation_id == calculation.calculation_id %>
+          <% end %>
+        </select>
+        
+        <i id="calculation-description" class="hover icon-list-alt pull-right some-top-padding" tabindex="0" data-role="show-popover" data-placement="top" 
+          data-content="<%= selected_description %>"></i>
+      </div>
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_measure_unit_code">Measure Unit</label>
+      
+      <div class="span no-left-margin">
+        <select class="span3 no-left-margin" data-description-target="#measure-unit-description" data-role="select2" id="tariff_model_area_measure_unit_code" name="tariff_model_area[measure_unit_code]">
+          <option value=""></option>
+          <% selected_description = "" %>
+          <% MeasureUnit.all(:order => "name").each do |measure_unit| %>
+            <option value="<%= measure_unit.measure_unit_code %>"
+                    data-description="<%= measure_unit.descriptive_text %>"
+                    <%= 'selected="selected"'.html_safe if @tma.measure_unit_code == measure_unit.measure_unit_code %>>
+              <%= measure_unit.name %>
+            </option>
+            <% selected_description = measure_unit.descriptive_text if @tma.measure_unit_code == measure_unit.measure_unit_code %>
+          <% end %>
+        </select>
+        
+        <i id="measure-unit-description" class="hover icon-list-alt pull-right some-top-padding" tabindex="0" data-role="show-popover" data-placement="top" 
+          data-content="<%= selected_description %>"></i>
+      </div>
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_tma_option_group_id">Option Group</label>
+      <%= select_tag "tariff_model_area[tma_option_group_id]", options_from_collection_for_select(Calculation.where(:calculation_indicator => "T"), 'calculation_id', 'calculation_name', @tma.tma_option_group_id),
+                     {:include_blank => true, :class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+  </div>
+  
+  <div clas="controls controls-row">
+    <div class="span">
+      <label for="tariff_model_area_test_mode_ind">Test Mode</label>
+      <%= check_box 'tariff_model_area', 'test_mode_ind', :checked => @tma.test_mode_ind %>
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_rate_plan_indicator">Used for Rate plans</label>
+      <%= check_box 'tariff_model_area', 'rate_plan_indicator', :checked => @tma.rate_plan_indicator %>
+    </div>
+    
+    <div class="span">
+      <label for="tariff_model_area_descriptive_text">Description</label>
+      <%= text_area_tag 'tariff_model_area[descriptive_text]', @tma.descriptive_text, rows: 2, maxlength: 360, class: 'span7' %>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,25 @@
+<%= render "errors" %>
+
+<%= form_for(@table, :html => {:class=>"form-horizontal"}) do |f| %>
+
+  <div class="control-group">
+    <%= f.label "Name", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, :class=> "span3", :required=> true, :maxlength=> 50 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Template", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.collection_select(:template_id, @table.avaliable_templates, :template_id, :template_name,
+                              {:selected => @table.template_id, :include_blank => true},
+                               :class=> "span3 no-left-margin", :data => {:type => "select2" } ) %>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= link_to "Cancel", :back, :class=> "btn" %>
+    <%= f.submit "Save", :class=> "btn btn-primary" %>
+  </div>
+<% end %>

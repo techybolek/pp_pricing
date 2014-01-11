@@ -1,0 +1,15 @@
+.jstree-default i[class^="icon-"] {
+  background-image: none;
+}
+
+.jstree-default i.icon-remove {
+  color: #B80000;
+}
+
+.jstree-default i.icon-ok {
+  color: #00A300;
+}
+
+.jstree-default i.icon-exchange {
+  color: #FFA347;
+}

@@ -1,0 +1,52 @@
+<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+  Product
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+  <!-- Products submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Event Creation Templates
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=event_creation_templates_path%>"><i class="icon-search"></i> Search</a></li>
+    </ul>
+  </li>
+  <!-- Products submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Product
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=products_path%>"><i class="icon-search"></i> Search</a></li>
+      <li><a href="<%=synchronize_products_path%>"> Synchronize with external catalog</a></li>
+    </ul>
+  </li>
+  <!-- Promotion submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Promotion
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=promotions_path%>"><i class="icon-search"></i> Search</a></li>
+    </ul>
+  </li>
+  <!-- Services submenu -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Service
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=services_path%>"><i class="icon-search"></i> Search</a></li>
+    </ul>
+  </li>
+  <!-- Service Characteristics -->
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">
+      Service Characteristics
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="<%=service_characteristics_path%>"><i class="icon-search"></i> Search</a></li>
+    </ul>
+  </li>
+</ul>

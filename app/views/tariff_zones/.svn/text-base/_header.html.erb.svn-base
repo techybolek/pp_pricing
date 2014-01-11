@@ -1,0 +1,30 @@
+<table class="table table-condensed no-bottom-margin borderless">
+    <tbody>
+      <tr>
+        <th width="20%">Code</th>
+        <th width="20%">Name</th>
+        <th width="30%">Effective Date</th>
+        <th width="30%">Test Mode</th>
+      </tr>
+      <tr>
+        <td><%= @tz.tariff_zone_code %></td>
+        <td><%= @tz.name %></td>
+        <td><%= @tz.effective_date.to_date %></td>
+        <td><%= @tz.test_mode_word %></td>
+      </tr>
+    </tbody>
+</table>
+<table class="table table-condensed borderless">
+  <tbody>
+    <tr>
+      <th width="20%">Billing Name</th>
+      <th width="20%">Billing Name (Alternate)</th>
+      <th width="60%">Description of Tariff Zone</th>
+    </tr>
+    <tr>
+      <td><%= @tz.billing_name_1 %></td>
+      <td><%= @tz.billing_name_2 %></td>
+      <td><%= @tz.descriptive_text %></td>
+    </tr>
+  </tbody>
+</table>

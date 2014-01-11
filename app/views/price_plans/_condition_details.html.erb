@@ -1,0 +1,47 @@
+<div class="hide" id="<%= rule.selection_rule_id %>">
+  <% details = rule.condition_details %>
+  <% event_details = SelectionRuleCondition.event_details(rule.condition_id, details.condition_string) %>
+  <table class="table table-condensed no-bottom-margin borderless">
+    <tr>
+      <th width="20%">Code</th>
+      <th width="30%">Name</th>
+      <th width="50%">Description</th>
+    </tr>
+    <tr>
+      <td><%= details.condition_code %></td>
+      <td><%= details.name %></td>
+      <td><%= details.descriptive_text %></td>
+    </tr>
+  </table>
+  <table class="table table-condensed borderless">
+    <tr>
+      <th>Condition</th>
+    </tr>
+    <tr>
+      <td><%= event_details.first.order_string unless event_details.nil? %></td>
+    </tr>
+  </table>
+  <h4>Condition Expressions</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="6%"></th>
+        <th width="12%">Type</th>
+        <th width="23%">Name</th>
+        <th width="17%">Operator</th>
+        <th width="42%">Value(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% event_details.each do |event| %>
+        <tr>
+          <td><%= event.order %></td>
+          <td><%= event_type(event.type) %></td>
+          <td><%= event.name %></td>
+          <td><%= event.operator %></td>
+          <td><%= event.values %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

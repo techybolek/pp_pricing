@@ -1,0 +1,52 @@
+<div class="span">
+  <div clas="controls controls-row">
+    <!-- Service Level -->
+    <div class="span">
+      <label for="service_service_level_code">Service Level</label>
+      <%= select_tag "service[service_level_code]", options_from_collection_for_select(GeneralCodeItem.where(group_code: 'SRVC_LEVEL'), :value, :short_description, @service.service_level_value),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    
+    <!-- Technical Specifications -->
+    <div class="span">
+      <label for="service_technical_service_value">Technical Service</label>
+      <%= select_tag "service[technical_service_value]", options_from_collection_for_select(TechnicalServiceCode.for_select_box, :technical_service_code_name, :technical_service_description, @service.technical_service_value),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    <!-- Min Days for Provisioning -->
+    <div class="span">
+      <label for="service_min_time_of_provision">Min Days for Provisioning</label>
+      <input type="number" id="service_min_time_of_provision" name="service[min_time_of_provision]" min="0" value="<%= @service.min_time_of_provision %>">
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <!-- Access Service -->
+    <div class="span">
+      <label for="service_access_indicator">Access Service</label>
+      <%= check_box 'service', 'access_indicator', :checked => @service.access_indicator %>
+    </div>
+    
+    <!-- Deniable -->
+    <div class="span">
+      <label for="service_deniable_indicator">Deniable</label>
+      <%= check_box 'service', 'deniable_indicator', :checked => @service.deniable_indicator %>
+    </div>
+  
+  <!-- Provisioned in Network -->
+    <div class="span">
+      <label for="service_provisioned_indicator">Provisioned in Network</label>
+      <%= check_box 'service', 'provisioned_indicator', :checked => @service.provisioned_indicator %>
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <!-- Service Level Description -->
+    <div class="span">
+      <label for="service_service_level_description">Service Level Description</label>
+      <%= text_area_tag 'service[service_level_description]', @service.service_level_description, rows: 2, maxlength: 360, class: 'span9' %>
+    </div>
+  </div>
+</div>

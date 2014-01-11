@@ -1,0 +1,35 @@
+<div class="well">
+    <% if @template.errors.any? %>
+      <ul class="text-error">
+        <% @template.errors.each do |error, message| %>
+          <li><%= Template.human_attribute_name(error) %> - <%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <table class="table table-condensed no-bottom-margin borderless">
+     <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Status</th>
+     </tr>
+     <tr>
+      <td>
+		  <a id='template_code' data-role='editable' data-type='text' data-placement='right'>
+		    <%= @template.template_code %>
+        </a>
+		</td>
+      <td>
+		  <a id='template_name' data-role='editable' data-type='text' data-placement='right'>
+		    <%= @template.template_name %>
+		  </a>
+		</td>
+      <td>
+		  <a id='effective_date' data-role='editable' data-type='date' data-format="mm-dd-yyyy" data-placement='right'>
+		  <%= @effective_date%>
+		  </a>
+		</td>
+      <td id='effective_status'><%= @template.effective_status %></td>
+     </tr>
+    </table>
+</div>

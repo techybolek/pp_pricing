@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules
+END
+_algorithm.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_algorithm.html.erb
+END
+_condition.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_condition.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/index.html.erb
+END
+_rules.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_rules.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/show.html.erb
+END
+_pstep_table.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_pstep_table.html.erb
+END
+_toolbar.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_toolbar.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/tapestry/!svn/ver/18476/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/algorithm_selection_rules/_form.html.erb
+END

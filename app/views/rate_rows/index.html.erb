@@ -1,0 +1,78 @@
+<h2>Copy Rate Rows</h2>
+
+<div class="well">
+  <form class="span8 form-horizontal search" method="get">
+    <input type="text"
+      class="input-large"
+      placeholder="Rate Table Name"
+      name="rate_table_name"
+      value="<%=session[:rate_table_name]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Template Name"
+      name="template_name"
+      value="<%=session[:usage_template_name]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Table Status"
+      name="rate_table_status"
+      value="<%=session[:rate_table_status]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Template Code"
+      name="template_code"
+      value="<%=session[:usage_template_code]%>" >
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <form class="container span" method="post" action="<%=rate_table_show_path(@table)%>">
+    <%= token_tag form_authenticity_token %>
+    <input class="btn btn-primary" type="submit" value="Copy Selected Rows">
+    <% rates = @table.rates %>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><input type="checkbox" data-role="checkall" data-check-name="rate_rows[]"></th>
+          <% rates.each do |rate| %>
+            <th>
+              <%= rate.title %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <% @rows.each do |row| %>
+        <% cells = row.get_cells(@table.template_id) %>
+        <tr>
+          <td><input type="checkbox" name="rate_rows[]" value="<%=row.rate_row_id%>" ></td>
+          <% rates.each do |rate| %>
+            <% cell = cells.select{|v| v.rate_id == rate.rate_id }.first %>
+              <td>
+                <% if cell %>
+                  <% if rate.group_code && !rate.group_code.empty? %>
+                    <%= cell.group_code_description(rate.group_code) unless cell.nil? %>
+                  <% else %>
+                    <%= cell.value unless cell.nil? %>
+                  <% end %>
+                <% end %>
+              </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </form>
+  
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:rate_rows, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:rate_rows_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @rows %>
+  </div>
+</div>

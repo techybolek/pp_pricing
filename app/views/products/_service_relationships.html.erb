@@ -1,0 +1,59 @@
+<div class="span" style="width: 18%;">
+  <ul class="unstyled">
+    <li>Requires<ul>
+    <% associated_services.each do |service| %>
+      <% if service.requires_indicator %>
+        <li><%= service.service_code %> - <%= service.name %></li>
+      <% end %>
+    <% end %>
+    </ul></li>
+  </ul>
+</div>
+
+<div class="span" style="width: 18%;">
+  <ul class="unstyled">
+    <li>Required By<ul>
+    <% associated_services.each do |service| %>
+      <% if service.is_required_indicator && services.any?{|x| x.service_code == service.service_code} %>
+        <li><%= service.service_code %> - <%= service.name %></li>
+      <% end %>
+    <% end %>
+    </ul></li>
+  </ul>
+</div>
+
+<div class="span" style="width: 18%;">
+  <ul class="unstyled">
+    <li>Owns<ul>
+    <% associated_services.each do |service| %>
+      <% if service.owns_indicator && services.any?{|x| x.service_code == service.service_code} %>
+        <li><%= service.service_code %> - <%= service.name %></li>
+      <% end %>
+    <% end %>
+    </ul></li>
+  </ul>
+</div>
+
+<div class="span" style="width: 18%;">
+  <ul class="unstyled">
+    <li>Owned By<ul>
+    <% associated_services.each do |service| %>
+      <% if service.is_owned_indicator && services.any?{|x| x.service_code == service.service_code} %>
+        <li><%= service.service_code %> - <%= service.name %></li>
+      <% end %>
+    <% end %>
+    </ul></li>
+  </ul>
+</div>
+
+<div class="span" style="width: 18%;">
+  <ul class="unstyled">
+    <li>Excludes<ul>
+    <% associated_services.each do |service| %>
+      <% if service.excludes_indicator %>
+        <li><%= service.service_code %> - <%= service.name %></li>
+      <% end %>
+    <% end %>
+    </ul></li>
+  </ul>
+</div>

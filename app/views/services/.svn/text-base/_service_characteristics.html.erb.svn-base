@@ -1,0 +1,29 @@
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Fixed</th>
+    <th>Set by Customer</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+  </tr>
+  <% @service.characteristics.each do |char| %>
+    <tr>
+      <td><%= char.service_char_code %></td>
+      <td><%= char.name %></td>
+      <td><%= char.value_type_ind %></td>
+      <td><%= char.fixed_variable_indicator %></td>
+      <td><%= char.set_by_customer_ind %></td>
+      <td><%= char.mandatory_provision_ind %></td>
+      <td>
+        <i class="icon-list-alt"
+             data-role="show-popover"
+             data-placement="left"
+             data-content="<%= char.descriptive_text %>"
+             tabindex="0"
+             data-title="<%= char.name %>"></i>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,73 @@
+<% number_of_periods = @promotion.number_of_periods %>
+
+<div class="controls controls-row">
+  <label class="span" for="promotion_period_type_ind">Period Type</label>
+  <%= select_tag 'promotion[period_type_ind]',
+        options_for_select([['Bill periods', 'B'], ['Days', 'D'], ['Months', 'M']], @promotion.period_type_ind),
+        class: "span2" %>
+  
+  <label class="span" for="promotion_number_of_periods">Number of Periods</label>
+  <%= number_field_tag("promotion[number_of_periods]", @promotion.number_of_periods, min: 1, class: "span1") %>
+  
+  <label class="span">
+    <%= check_box_tag 'promotion[ignore_partial_ind]', 'Y', @promotion.ignore_partial_ind %>
+    Ignore 1st partial bill period unless greater than
+  </label>
+  
+  <label class="span">
+    <%= number_field_tag("promotion[partial_bill_period_days]", @promotion.partial_bill_period_days, min: 1, class: "span1") %>
+    days
+  </label>
+</div>
+
+<div class="controls controls-row">
+  
+</div>
+
+<div class="container">
+  <div class="span6">
+    <table class="table table-condensed">
+      <tr>
+        <th>Price Plan</th>
+        <th>Service</th>
+        <th>Usage Mode</th>
+        <th>Charge Type</th>
+        <th>Rate Plan</th>
+      </tr>
+      
+      <% @promotion.promotion_terms.each do |row| %>
+        <tr>
+          <td><%= row.price_plan_code %></td>
+          <td><%= link_to row.service_code, edit_service_path(row.service_code) if row.service_code %></td>
+          <td><%= row.usage_mode_name %></td>
+          <td><%= charge_type(row.charge_occurance_type_rd) %></td>
+          <td><%= row.rate_plan_code %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  
+  <div style="overflow: auto;">
+    <table class="table table-condensed grid" style="width:auto;">
+      <tr>
+        <% 1.upto(number_of_periods) do |num| %>
+          <th><%= num %></th>
+        <% end %>
+      </tr>
+      
+      <% @promotion.promotion_terms.each do |row| %>
+        <tr>
+          <% 1.upto(number_of_periods) do |num| %>
+            <% if row.includes_period?(num) %>
+              <td class="success">
+                &#x2713;
+              </td>
+            <% else %>
+              <td></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

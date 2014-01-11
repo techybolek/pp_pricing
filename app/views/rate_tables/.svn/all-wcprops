@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables
+END
+_table.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tapestry/!svn/ver/18715/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/_table.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/new.html.erb
+END
+_errors.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18307/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/_errors.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/show.html.erb
+END
+_toolbar.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/_toolbar.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/18328/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/rate_tables/_form.html.erb
+END

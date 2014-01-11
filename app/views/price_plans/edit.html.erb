@@ -1,0 +1,60 @@
+<% content_for(:page_title) do @price_plan.price_plan_code + " | Price Plans" end %>
+
+<div class="row">
+  <div id="tree-container" class="span4 well well-small sidebar-nav">
+    <div id="price-plan-tabs" class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tree-plan" data-toggle="tab">Price Plan</a></li>
+        <li><a href="#tree-rule-sets" data-toggle="tab">Selection</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tree-plan">
+          <% if @price_plan.root_rule %>
+            <%= render "tree" %>
+          <% end %>
+        </div>
+        <div class="tab-pane" id="tree-rule-sets">
+          <%= render "tree_plan_selection_rule_set" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="span" style="width:64%;">
+    <div id="tree-details" class="well well-small">
+      <!-- For main Price Plan tab -->
+      <%= render "price_plan_details" %>
+      
+      <% selection_rules = @price_plan.selection_rule_tree %>
+      <% process_steps = ProcessStep.for_selection_rule( selection_rules.map{|i| i.algorithm_id} ) %>
+      
+      <% selection_rules.each do |rule| %>
+        <% if rule.condition_id %>
+          <%= render "condition_details", :rule => rule, :all_process_steps => process_steps %>
+        <% else %>
+          <%= render "algorithm_details", :rule => rule %>
+        <% end %>
+      <% end %>
+      
+      <!-- For Selection tab -->
+      <% set = PlanSelectionRuleSet.get_rule_info(PlanSelectionRuleSet.find_selection_rule_set.first.plan_selection_root_rule_id) %>
+      <% price_plans_rendered = Hash.new %>
+      <% price_plans_rendered[:counter_unique] = 0 %>
+      <% if set.condition_id %>
+        <%= render "set_condition_details", :rule => set, :price_plans_rendered => price_plans_rendered %>
+      <% else %>
+        <%= render "set_details", :rule => set, :price_plans_rendered => price_plans_rendered %>
+      <% end %>
+      <% draft = PlanSelectionRuleSet.find_selection_rule_set_draft %>
+      <% if draft.size > 0 %><!-- if draft exists -->
+        <% draft = PlanSelectionRuleSet.get_rule_info(draft.first.plan_selection_root_rule_id) %>
+        <% price_plans_rendered = Hash.new %>
+        <% price_plans_rendered[:counter_unique] = 1 %>
+        <% if draft.condition_id %>
+          <%= render "set_condition_details", :rule => draft, :price_plans_rendered => price_plans_rendered %>
+        <% else %>
+          <%= render "set_details", :rule => draft, :price_plans_rendered => price_plans_rendered %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

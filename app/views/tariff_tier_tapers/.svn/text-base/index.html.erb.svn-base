@@ -1,0 +1,74 @@
+<% content_for(:page_title) do "Tiers and Tapers" end %>
+
+<h2>Search Tiers and Tapers</h2>
+
+<div class="well">
+  <form class="span10 form-inline search" method="get">
+    <input type="text"
+      placeholder="Code"
+      name="tariff_tier_taper_code"
+      value="<%=session[:tariff_tier_taper_code]%>" >
+    <input type="text"
+      placeholder="Name"
+      name="tariff_tier_taper_name"
+      value="<%=session[:tariff_tier_taper_name]%>" >
+    <input type="text"
+      placeholder="Tariff Model Area Code"
+      name="tariff_model_area_code"
+      value="<%=session[:tariff_model_area_code]%>" >
+    <input type="text"
+      placeholder="Tariff Model Area Name"
+      name="tariff_model_area_name"
+      value="<%=session[:tariff_model_area_name]%>" >
+    <select name="test_mode_ind" data-role="select2">
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode_ind] == '' %> value="">Test Mode?</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode_ind] == 'Y' %> value="Y">Yes</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode_ind] == 'N' %> value="N">No</option>
+    </select>
+    <%= select_tag 'change_group_id',
+      options_for_select(@change_groups, :selected => session[:change_group_id]),
+      :prompt => 'Change Group ID?',
+      :data => {:role => 'select2'} %>
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @ttt, "Code", "tariff_tier_taper_code" %></th>
+        <th><%=sortable @ttt, "Name", "name" %></th>
+        <th><%=sortable @ttt, "Effective Date", "effective_date" %></th>
+        <th><%=sortable @ttt, "Test Mode", "test_mode_ind" %></th>
+        <th class="pull-right">Description</th>
+      </tr>
+    </thead>
+    <% @ttt.each do |ttt| %>
+      <tr>
+        <td><%= link_to ttt.tariff_tier_taper_code, tariff_tier_taper_path(ttt.tariff_tier_taper_version_id) %></td>
+        <td><%= link_to ttt.name, tariff_tier_taper_path(ttt.tariff_tier_taper_version_id) %></td>
+        <td><%= ttt.effective_date.to_date if ttt.effective_date %></td>
+        <td><%= ttt.test_mode_word %></td>
+        <td>
+          <% if ttt.descriptive_text %>
+            <i class="hover icon-list-alt pull-right" data-role="show-popover" data-placement="left" 
+            data-content="<%= ttt.descriptive_text %>" data-original-title="<%= ttt.name %>" tabindex="0"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:tariff_tier_tapers, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:tariff_tier_taper_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @ttt %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/tariff_tier_tapers
+END
+_bands.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/tapestry/!svn/ver/18541/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/tariff_tier_tapers/_bands.html.erb
+END
+_header.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/tapestry/!svn/ver/18576/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/tariff_tier_tapers/_header.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/tariff_tier_tapers/index.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/19124/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/tariff_tier_tapers/show.html.erb
+END

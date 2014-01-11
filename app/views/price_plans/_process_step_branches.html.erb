@@ -1,0 +1,11 @@
+<% if process_steps.size > 0 %>
+  <ul>
+    <% process_steps.each do |step| %>
+      <li>
+        <a data-role="tree-display" data-target="#tree-details" data-source="<%=step.process_step_id%>">
+          <%= step.process_step_order %>) <%= step.tariff_model_area_name %>, <%= step.calculation_name %>, <%= find_calculation_type_indicator(step.calculation_type_indicator) %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tapestry/!svn/ver/19428/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tapestry/!svn/ver/19428/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/19361/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/index.html.erb
+END
+_general_promotion_data.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/tapestry/!svn/ver/19410/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/_general_promotion_data.html.erb
+END
+_associated_pricing_structures.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/tapestry/!svn/ver/19424/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/_associated_pricing_structures.html.erb
+END
+_promotion_term.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/tapestry/!svn/ver/19428/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/_promotion_term.html.erb
+END
+_toolbar.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/19410/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/_toolbar.html.erb
+END
+_application.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/19417/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/promotions/_application.html.erb
+END

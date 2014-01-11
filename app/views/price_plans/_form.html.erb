@@ -1,0 +1,49 @@
+<% if @price_plan.errors.any? %>
+  <ul class="text-error">
+    <% @price_plan.errors.each do |error, message| %>
+      <li><%= PricePlan.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@price_plan, :html => {:class=>"form-horizontal"}) do |f| %>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", :back, :class=> "btn" %>
+    <%= f.submit "Save", :class=> "btn btn-success" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Effective Date", :class=> "control-label" %>
+    <div class="controls">
+        <input data-role="datepicker"
+               name="price_plan[effective_date]"
+               type="text"
+               value="<%= @price_plan.effective_date.to_date unless @price_plan.effective_date.nil? %>">
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Price Plan Code", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :price_plan_code, :required=> true, :class=> "span2", :maxlength=> 5 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Name", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :required=> true, :maxlength=> 30 %>
+    </div>
+
+  <div class="control-group">
+    <%= f.label "Root id", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :root_selection_rule_id, :readonly => true %>
+    </div>
+  </div>
+
+   <%=render "rulelink" %>
+   <%=render "/algorithm_selection_rules/rules"%>
+
+<% end %>

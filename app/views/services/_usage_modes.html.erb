@@ -1,0 +1,27 @@
+<div class="span">
+  <div clas="controls controls-row">
+    <div class="span">
+      <h5>Avaliable Modes</h5>
+      <ul id="avaliable_usage_modes" class="sortable span3 rate-template-table connectedSortable" style="min-height:180px;">
+        <% @service.avaliable_usage_modes.each do |mode| %>
+          <li class="rate-cell rate-det-cell">
+              <input type="hidden" name="service[avaliable_usage_modes][]" value="<%= mode.usage_mode_value %>">
+              <i class="icon-move"></i> <%= mode.short_description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    
+    <div class="span">
+      <h5>Selected Modes</h5>
+      <ul id="selected_usage_modes" class="sortable span3 rate-template-table connectedSortable" style="min-height:180px;">
+        <% @service.usage_modes.each do |mode| %>
+          <li class="rate-cell rate-det-cell">
+              <input type="hidden" name="service[selected_usage_modes][]" value="<%= mode.usage_mode_value %>">
+              <i class="icon-move"></i> <%= mode.short_description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

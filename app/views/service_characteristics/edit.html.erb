@@ -1,0 +1,62 @@
+<% content_for(:page_title) do @characteristic.service_char_code + " | Service Characteristics" end %>
+
+<div class="container">
+  <div style="height:60px;">
+    <div class="affix-top" data-spy="affix" data-offset-top="128" style="z-index:999; margin: 0px auto; background-color: #F6F4F0">
+      <div class="span">
+        <h2><small><%= @characteristic.service_char_code %> - <%= @characteristic.name %></small></h2>
+      </div>
+      
+      <div class="pull-right" style:"margin-left: auto;">
+        <%= render "toolbar" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  
+  <!-- Basic Service Characteristic Data -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Basic Service Characteristic Data
+    </h4>
+    <div class="collapse in">
+      <%= render "basic_data" %>
+    </div>
+  </div>
+  
+  <!-- Type Details -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Type Details
+    </h4>
+    <div class="collapse in">
+      <%= render "type_details" %>
+    </div>
+  </div>
+  
+  <!-- Continuous Value -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Continuous Value
+    </h4>
+    <div class="collapse in">
+      <%= render "continuous_value" %>
+    </div>
+  </div>
+  
+  <!-- Distinct Value -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Distinct Value
+    </h4>
+    <div class="collapse in">
+      <%= render "distinct_value" %>
+    </div>
+  </div>
+</form>

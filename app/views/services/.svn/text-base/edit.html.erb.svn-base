@@ -1,0 +1,110 @@
+<% content_for(:page_title) do @service.service_code + " | Service" end %>
+
+<div class="container">
+  <div style="height:60px;">
+    <div class="affix-top" data-spy="affix" data-offset-top="128" style="z-index:999; margin: 0px auto; background-color: #F6F4F0">
+      <div class="span">
+        <h2>Service <small><%= @service.service_code %> - <%= @service.name %> - <%= alternate_status(@service.effective_status) %></small></h2>
+      </div>
+      
+      <div class="pull-right" style:"margin-left: auto;">
+        <%= render "toolbar" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  
+  <div class="well">
+    <%= render "service_details" %>
+  </div>
+  
+  <!-- General Service Data -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      General Service Data
+    </h4>
+    <div class="collapse in">
+      <%= render "general_details" %>
+    </div>
+  </div>
+  
+  <!-- Technical Specifications -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Technical Specifications
+    </h4>
+    <div class="collapse in">
+      <%= render "technical_specifications" %>
+    </div>
+  </div>
+  
+  <!-- Usage Modes -->
+  <div class="well" id="usage-mode-container">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Usage Modes
+    </h4>
+    <div class="collapse in">
+      <%= render "usage_modes" %>
+    </div>
+  </div>
+  
+  <!-- Service Characteristics -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Service Characteristics
+    </h4>
+    <div class="collapse in">
+      <%= render "service_characteristics" %>
+    </div>
+  </div>
+  
+  <!-- Associated Services -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Associated Services
+    </h4>
+    <div class="collapse in">
+      <%= render "associated_services" %>
+    </div>
+  </div>
+  
+  <!-- Taxing -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Taxing
+    </h4>
+    <div class="collapse in">
+      <%= render "taxing" %>
+    </div>
+  </div>
+  
+  <!-- Journalization -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Journalization
+    </h4>
+    <div class="collapse in">
+      <%= render "journalization" %>
+    </div>
+  </div>
+  
+  <!-- Postal Codes -->
+  <div class="well">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Postal Codes
+    </h4>
+    <div class="collapse in">
+      <%= render "postal_codes" %>
+    </div>
+  </div>
+</form>

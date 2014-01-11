@@ -1,0 +1,36 @@
+<% adjunct = ParameterItem.adjunct_mode? %>
+
+<table class="table table-condensed">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    
+    <% if adjunct %>
+      <th>Subscription Key 1</th>
+      <th>Subscription Key 2</th>
+      <th>Accumulation Account</th>
+      <th>Option Value</th>
+    <% end %>
+  </tr>
+  
+  <% @structure.price_plans.each do |price_plan| %>
+    <tr>
+      <td><%= price_plan.price_plan_code %></td>
+      <td><%= price_plan.name %></td>
+      <td>
+        <% if price_plan.descriptive_text && !price_plan.descriptive_text.empty? %>
+          <i class="hover icon-list-alt pull-left" data-role="show-popover" data-placement="left" 
+          data-content="<%= price_plan.descriptive_text %>" tabindex="0"></i>
+        <% end %>
+      </td>
+      
+      <% if adjunct %>
+        <td><%= price_plan.price_plan_sub1_rtti_path %></td>
+        <td><%= price_plan.price_plan_sub2_rtti_path %></td>
+        <td><%= price_plan.accumulation_account_rtti_path %></td>
+        <td><%= price_plan.option_value_rtti_path %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

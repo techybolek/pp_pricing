@@ -1,0 +1,73 @@
+<div class="controls controls-row">
+  <!-- Pricing Structure Code -->
+  <div class="span">
+    <label for="pricing_structure_pricing_structure_code">Code</label>
+    <%= text_field_tag("pricing_structure[pricing_structure_code]", @structure.pricing_structure_code, :class=>"span2", :placeholder=>"Code", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Pricing Structure Name -->
+  <div class="span">
+    <label for="pricing_structure_name">Name</label>
+    <%= text_field_tag("pricing_structure[name]", @structure.name, :class=>"span3", :placeholder=>"Name", :maxlength=>"60")%>
+  </div>
+  
+  <!-- Start Date -->
+  <div class="span">
+    <label for="pricing_structure_start_date">Start Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="pricing_structure_start_date"
+           name="pricing_structure[start_date]"
+           type="text"
+           value="<%= @structure.start_date %>">
+  </div>
+  
+  <!-- End Date -->
+  <div class="span">
+    <label for="pricing_structure_end_date">End Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="pricing_structure_end_date"
+           name="pricing_structureend_date]"
+           type="text"
+           value="<%= @structure.end_date if nullable_date(@structure.end_date) %>">
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Responsible Manager -->
+  <div class="span">
+    <label for="pricing_structure_responsible_manager">Responsible Manager</label>
+    <%= text_field_tag("pricing_structure[responsible_manager]", @structure.responsible_manager, :class=>"span3", :placeholder=>"Responsible Manager", :maxlength=>"30")%>
+  </div>
+  
+  <!-- Test Mode -->
+  <div class="span">
+    <label for="pricing_structure_test_mode_ind">Test Mode</label>
+    <%= check_box 'pricing_structure', 'test_mode_ind', :checked => @structure.test_mode_ind %>
+  </div>
+  
+  <!-- Change Group ID -->
+  <div class="span">
+    <label for="pricing_structure_change_group_id">Change Group ID</label>
+    <%= text_field_tag("pricing_structure[change_group_id]", @structure.change_group_id, :class=>"span3", :placeholder=>"Change Group ID", :maxlength=>"30")%>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Billing Name -->
+  <div class="span">
+    <label for="pricing_structure_billing_name_1">Billing Name</label>
+    <%= text_field_tag("pricing_structure[billing_name_1]", @structure.billing_name_1, :class=> "span5", :placeholder=>"Billing Name") %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Description -->
+  <div class="span">
+    <label for="pricing_structure_descriptive_text">Description</label>
+    <%= text_area_tag 'pricing_structure[descriptive_text]', @structure.descriptive_text, rows: 3, maxlength: 360, class: 'span9' %>
+  </div>
+</div>

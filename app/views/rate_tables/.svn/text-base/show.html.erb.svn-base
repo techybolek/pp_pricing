@@ -1,0 +1,49 @@
+<% content_for(:page_title) do @table.title + " | Rate Table" end %>
+
+<h2>Edit Rate Table</h2>
+
+<div class="well">
+  <table class="table table-condensed no-bottom-margin borderless">
+    <tr>
+      <th>Name</th>
+      <th>Template Code</th>
+      <th>Template Name</th>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>
+        <a data-role="editable"
+           data-type="text"
+           data-name="rate_table[title]"
+           data-placement="right"
+           tabindex="<%=autotab%>"
+           data-saved-value="<%= @table.title %>"
+           title="Enter Rate Table name">
+           <%= @table.title %>
+        </a></td>
+      <td><%= @table.template.template_code %></td>
+      <td><%= @table.template.template_name %></td>
+      <td>
+        <a data-role="editable"
+           data-type="date"
+           data-name="rate_table[effective_date]"
+           data-clear="false"
+           data-placement="right"
+           data-saved-value="<%= @table.effective_date.to_date.strftime("%F") %>"
+           data-viewformat="mm-dd-yyyy"
+           data-format="yyyy-mm-dd"
+           tabindex="<%=autotab%>"
+           title="Enter Effective Date">
+           <%= @table.effective_date.to_date %>
+        </a></td>
+      <td><%= @table.effective_status %></td>
+    </tr>
+  </table>
+</div>
+
+<%= render "toolbar" %>
+
+<div class="well">
+  <%= render "table" %>
+</div>

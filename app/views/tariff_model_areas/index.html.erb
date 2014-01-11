@@ -1,0 +1,64 @@
+<% content_for(:page_title) do "TMAs" end %>
+
+<h2>Search Tariff Model Area</h2>
+
+<div class="well">
+  <form class="span12 form-horizontal search" method="get">
+    <%= text_field_tag("tma_code", session[:tma_code],{:placeholder=>"Tariff Model Area Code"})%>
+    <%= text_field_tag("tma_name", session[:tma_name],{:placeholder=>"Tariff Model Area Name"})%>
+    <%= select_tag :test_mode, options_for_select([["Yes","Y"],["No","N"]], session['tma_testmode']), { :prompt=>'Test Mode?', :data=>{:role=>'select2'}} %>
+    <%= select_tag :change_group, options_from_collection_for_select(ChangeGroup.all, 'change_group_id', 'change_group_id', session['tma_chgroup']), { :prompt=>'Select Change Group', :data=>{:role=>'select2'} }%>
+    <%= select_tag :calculation_id, options_from_collection_for_select(Calculation.all(:order => "calculation_name"), 'calculation_id', 'calculation_name', session['tma_calcid']), { :prompt=>'Select Calculation', :data=>{:role=>'select2'}}%>
+    <%= select_tag :measure_unit, options_from_collection_for_select(MeasureUnit.all(:order => "name"), 'measure_unit_code', 'name', session['tma_mucode']), { :prompt=>'Select Measure Unit', :data=>{:role=>'select2'}} %>
+    <%= select_tag :rate_plan, options_for_select([["Yes","Y"],["No","N"]], session['tma_rateplan']), { :prompt=>'Rate Plan?', :data=>{:role=>'select2'}} %>
+
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th />
+        <th><%=sortable @tmas, "Code", "tariff_model_area_code" %></th>
+        <th><%=sortable @tmas, "Name", "name" %></th>
+        <th><%=sortable @tmas, "Status", "effective_status" %></th>
+        <th><%=sortable @tmas, "Effective Date", "effective_date" %></th>
+        <th><%=sortable @tmas, "Calculation", "calculation_name" %></th>
+        <th><%=sortable @tmas, "Measure Unit", "measure_unit_name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tmas.each do |tma| %>
+        <tr>
+          <td>
+            <%= link_to tariff_model_area_path(tma), method: :delete,
+                        data: { confirm: "Are you sure you want to delete this tariff model area?" } do %>
+              <i class="icon-trash hover"> </i>
+            <% end %>
+          </td>
+          <td><%= link_to tma.tariff_model_area_code, edit_tariff_model_area_path(tma) %></td>
+          <td><%= link_to tma.name, edit_tariff_model_area_path(tma) %></td>
+          <td><%= tma.effective_status %></td>
+          <td><%= tma.effective_date %></td>
+          <td><%= tma.calculation_name %></td>
+          <td><%= tma.measure_unit_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:tariff_model_areas, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:tma_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @tmas %>
+  </div>
+</div>

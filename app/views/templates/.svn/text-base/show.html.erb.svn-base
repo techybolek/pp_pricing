@@ -1,0 +1,6 @@
+<% content_for(:page_title) do @template.template_code + " | Template" end %>
+
+<div id="rate-show">
+ <h2>Edit Rate Table Template</h2>
+  <%= render "show" %>
+</div>

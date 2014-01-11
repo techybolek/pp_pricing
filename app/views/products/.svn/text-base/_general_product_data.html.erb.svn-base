@@ -1,0 +1,82 @@
+<div class="controls controls-row">
+  <!-- Product Code -->
+  <div class="span">
+    <label for="product_service_code">Code</label>
+    <%= text_field_tag("product[product_code]", @product.product_code, :class=>"span2", :placeholder=>"Code", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Product Version -->
+  <div class="span">
+    <label for="product_product_version_code">Version</label>
+    <%= text_field_tag("product[product_version_code]", @product.product_version_code, :class=>"span2", :placeholder=>"Version", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Product Name -->
+  <div class="span">
+    <label for="product_name">Name</label>
+    <%= text_field_tag("product[name]", @product.name, :class=>"span3", :placeholder=>"Name", :maxlength=>"60")%>
+  </div>
+  
+  <!-- Product Status -->
+  <div class="span">
+    <label for="product_effective_status">Status</label>
+    <%= text_field_tag("product[effective_status]", alternate_status(@product.effective_status), :class=> "span2", :placeholder=>"Status", :readonly=>"readonly")%>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Classification -->
+  <div class="span">
+    <label for="product_classification_value">Classification</label>
+    <%= select_tag "product[classification_value]", options_from_collection_for_select(GeneralCodeItem.where(group_code: "PROD_CLASS"), :value, :short_description, @product.classification_value),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+  </div>
+  
+  <!-- Provider -->
+  <div class="span">
+    <label for="product_provider_code">Provider</label>
+    <%= select_tag "product[provider_code]", options_from_collection_for_select(Provider.order("name").all, :provider_code, :name, @product.provider_code),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+  </div>
+  
+  <!-- Responsible Manager -->
+  <div class="span">
+    <label for="product_responsible_manager">Responsible Manager</label>
+    <%= text_field_tag("product[responsible_manager]", @product.responsible_manager, :class=> "span3", :placeholder=>"Responsible Manager") %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Discontinued -->
+  <div class="span">
+    <label for="product_discontinue_indicator">Discontinued</label>
+    <%= check_box 'product', 'discontinue_indicator', :checked => @product.discontinue_indicator %>
+  </div>
+  
+  <!-- Test Mode -->
+  <div class="span">
+    <label for="product_test_mode_ind">Test Mode</label>
+    <%= check_box 'product', 'test_mode_ind', :checked => @product.test_mode_ind %>
+  </div>
+  
+  <!-- Change Group ID -->
+  <div class="span">
+    <label for="product_change_group_id">Change Group ID</label>
+    <%= text_field_tag("product[change_group_id]", @product.change_group_id, :class=> "span2", :placeholder=>"Change Group ID") %>
+  </div>
+</div>
+
+
+<div class="controls controls-row">
+  <!-- Billing Name -->
+  <div class="span">
+    <label for="product_billing_name_1">Billing Name</label>
+    <%= text_field_tag("product[billing_name_1]", @product.billing_name_1, :class=> "span3", :placeholder=>"Billing Name") %>
+  </div>
+  
+  <!-- Description -->
+  <div class="span">
+    <label for="product_descriptive_text">Description</label>
+    <%= text_area_tag 'product[descriptive_text]', @product.descriptive_text, rows: 2, maxlength: 360, class: 'span6' %>
+  </div>
+</div>

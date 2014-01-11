@@ -1,0 +1,19 @@
+<div class="span5">
+  <% options = @price_plan.options %>
+  <% if options.size() == 0 %>
+    No option defined for current Price Plan
+  <% else %>
+    <table class="table table-hover table-striped">
+      <tr>
+        <th>Option Name</th>
+        <th>Value</th>
+      </tr>
+      <% options.each do |option| %>
+        <tr>
+          <td><%= option.option_name %></td>
+          <td><%= option.option_value_name %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

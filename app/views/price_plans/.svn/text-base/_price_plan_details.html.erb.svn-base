@@ -1,0 +1,18 @@
+<div id="price-plan-details" class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#basic-info" data-toggle="tab">Basic Information</a></li>
+    <li><a href="#related-services" data-toggle="tab">Related Services</a></li>
+    <li><a href="#options" data-toggle="tab">Price Plan Options</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="basic-info">
+      <%= render "basic_info" %>
+    </div>
+    <div class="tab-pane" id="related-services">
+      <%= render "related_services" %>
+    </div>
+    <div class="tab-pane" id="options">
+      <%= render "options" %>
+    </div>
+  </div>
+</div>

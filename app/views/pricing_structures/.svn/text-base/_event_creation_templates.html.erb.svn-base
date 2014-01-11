@@ -1,0 +1,28 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Effective Date</th>
+    <th>Service</th>
+    <th>Usage Mode</th>
+    <th>Charge Occurence</th>
+    <th>Description</th>
+  </tr>
+  
+  <% @structure.ects.each do |ect| %>
+    <tr>
+      <td><%= ect.code %></td>
+      <td><%= ect.name %></td>
+      <td><%= ect.effective_date.to_date if ect.effective_date %></td>
+      <td><%= ect.service_code %></td>
+      <td><%= ect.usage_mode_name %></td>
+      <td><%= ect.charge_occurrence_name %></td>
+      <td>
+        <% if ect.descriptive_text && !ect.descriptive_text.empty? %>
+          <i class="hover icon-list-alt" data-role="show-popover" data-placement="left" 
+          data-content="<%= ect.descriptive_text %>" data-original-title="<%= ect.name %>" tabindex="0"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

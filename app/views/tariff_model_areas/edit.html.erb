@@ -1,0 +1,46 @@
+<% content_for(:page_title) do @tma.tariff_model_area_code + " | TMA" end %>
+
+<h2>Edit Tariff Model Area</h2>
+
+<div style="height:50px;">
+  <div class="container toolbar affix-top" data-spy="affix" data-offset-top="190">
+    <div class="btn-toolbar touching_toolbars span8 no-left-margin">
+      <div class="btn-group">
+        <button class="btn" id="cancel-tma" title="Cancel all unsaved changes">
+          <i class="icon-undo"></i> Cancel
+        </button>
+        <button id="save-tma"
+                class="btn btn-success"
+                title="Save all changes"
+                <%= 'disabled="disabled"'.html_safe if @tma.effective_status == "ACTIVE" %>
+                data-save-url="<%= tariff_model_area_path(@tma) %>">
+          <i class="icon-hdd"></i> Save
+        </button>
+        <a class="btn"
+           <% if @tma.effective_status == "DRAFT" %>
+             href="<%= tariff_model_area_approve_path(@tma)%>"
+           <% else %>
+             <%= 'disabled="disabled"'.html_safe %>
+           <% end %>
+           title="Approve and set to active status">
+          <i class="icon-check"></i> Approve
+        </a>
+        <a class="btn"
+           <% if @tma.effective_status == "ACTIVE" %>
+             href="<%= tariff_model_area_revert_path(@tma) %>"
+           <% else %>
+             <%= 'disabled="disabled"'.html_safe %>
+           <% end %>
+           title="Revert status to Draft">
+          <i class="icon-edit"></i> Revert to Draft
+        </a>
+      </div>
+    </div>
+    
+    <div class="btn-toolbar span">
+      <div id="tma-loading" class="loading hide"></div>
+    </div>
+  </div>
+</div>
+
+<%= render "tabs" %>

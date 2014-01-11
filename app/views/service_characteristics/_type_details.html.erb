@@ -1,0 +1,49 @@
+<div class="controls controls-row">
+  <!-- Value Type -->
+  <div class="span">
+    <label for="service_characteristic_value_type_ind">Classification</label>
+    <%= select_tag "service_characteristic[value_type_ind]", options_from_collection_for_select(GeneralCodeItem.where(group_code: "VALUE_TYPE"), :value, :short_description, @characteristic.value_type_ind),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Data Type -->
+  <div class="span">
+    <label for="service_characteristic_datatype_value">Data Type</label>
+    <%= select_tag "service_characteristic[datatype_value]", options_from_collection_for_select(GeneralCodeItem.where(group_code: "DATATYPE"), :value, :short_description, @characteristic.datatype_value),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}, :include_blank => true} %>
+  </div>
+  
+  <!-- Measure Unit Profile -->
+  <div class="span">
+    <label for="service_characteristic_measure_unit_profile_code">Measure Unit Profile</label>
+    <%= select_tag "service_characteristic[measure_unit_profile_code]", options_from_collection_for_select(MeasureUnitProfile.all, :measure_unit_profile_code, :name, @characteristic.measure_unit_profile_code),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}, :include_blank => true} %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Service Characteristic Type -->
+  <div class="span">
+    <label for="service_characteristic_characteristic_type_value">Service Characteristic Type</label>
+    <%= select_tag "service_characteristic[characteristic_type_value]", options_from_collection_for_select(GeneralCodeItem.where(group_code: "SRVCHARTYP"), :value, :short_description, @characteristic.characteristic_type_value),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}, :include_blank => true} %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Line Count Method -->
+  <div class="span">
+    <label for="service_characteristic_line_count_method_rd">Line Count Method </label>
+    <%= select_tag "service_characteristic[line_count_method_rd]", options_from_collection_for_select(GeneralCodeItem.where(group_code: "LN_COUNT"), :value, :short_description, @characteristic.line_count_method_rd),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}, :include_blank => true} %>
+  </div>
+  
+  <!--  Number of lines -->
+  <div class="span">
+    <lable for"service_characteristic_number_of_lines_value">Number of Lines</label>
+    <%= number_field_tag 'service_characteristic[number_of_lines_value]',
+                         @characteristic.number_of_lines_value, min: 0, class: "span1" %>
+  </div>
+</div>

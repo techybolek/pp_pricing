@@ -1,0 +1,58 @@
+<div class="span" style="width:30%">
+  <h5>Price Plans</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+    </tr>
+    
+    <% @structure.price_plans.each do |price_plan| %>
+      <tr>
+        <td><%= price_plan.price_plan_code %></td>
+        <td><%= price_plan.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="span" style="width:30%">
+  <h5>ECTs</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Service</th>
+      <th>Usage Mode</th>
+      <th>Charge</th>
+    </tr>
+    
+    <% @structure.ects.each do |ect| %>
+      <tr>
+        <td><%= ect.code %></td>
+        <td><%= ect.name %></td>
+        <td><%= ect.service_code %></td>
+        <td><%= ect.usage_mode_name %></td>
+        <td><%= number_with_precision(ect.amount, precision: 2) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="span" style="width:30%">
+  <h5>Promotions</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+    
+    <% @structure.promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.promotion_code %></td>
+        <td><%= promotion.promotion_name %></td>
+        <td><%= promotion.promotion_status %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

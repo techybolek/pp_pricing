@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tapestry/!svn/ver/19446/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tapestry/!svn/ver/19446/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/routes.rb
+END
+web.xml.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/web.xml.erb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tapestry/!svn/ver/18298/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/database.yml
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tapestry/!svn/ver/19300/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/application.rb
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/boot.rb
+END
+config.yml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/tapestry/!svn/ver/18893/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/config.yml
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tapestry/!svn/ver/18887/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/environment.rb
+END
+newrelic.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tapestry/!svn/ver/19292/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/newrelic.yml
+END
+warble.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tapestry/!svn/ver/18896/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/warble.rb
+END

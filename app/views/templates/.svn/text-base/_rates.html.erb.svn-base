@@ -1,0 +1,64 @@
+<script type="text/javascript">
+var jsDeterminants = [<%= raw @determinants.to_json %>];
+var jsResults = [<%= raw @results.to_json %>];
+</script>
+<div id="rate_prompt">ABCD</div>
+<div style="float:left">
+<div id="determinants-container" class="well rate-container">
+   <table>
+     <tr>
+       <td>
+         <button id="add-rate-determinant" class="btn btn-success add-rate-btn"
+           data-role="tooltip" title="Add rate determinants"
+           data-source="available-determinants" data-target="determinants-table"
+           data-class="rate-det-cell" data-offset="0">
+           Add Rate Determinant
+         </button>
+        </td>
+     </tr>
+     <tr>
+  		 <td><%= select_tag("available-determinants",options_from_collection_for_select(@determinants, 'rate_id', 'title'),{:size=>"6", :class=>"rate-box span3"}) %> </td>
+     </tr>
+   </table>
+   <ul class="sortable span3 rate-template-table" id="determinants-table">
+          <% @template.template_definitions.each do |column| %>
+            <% if column.rate.rate_type == "determinant" %>
+               <li tabindex="<%=autotab%>" data-rateid="<%= column.rate_id %>" class="rate-cell rate-det-cell" data-rate="<%=column.as_json%>">
+                 <i class="hover ui-icon ui-icon-arrowthick-2-n-s" style="display:inline-block" data-role="move-rate" title="Move rate"></i>
+                 <span><%= column.rate.title %></span>
+                 <i class="icon-trash hover right-justify" data-role="remove-rate" title="Remove from list"></i>
+               </li>
+            <% end %>
+          <% end %>
+    </ul>
+</div>
+<div id="results-container" class="well rate-container">
+<table>
+     <tr>
+       <td> <button id="add-rate-result" class="btn btn-success add-rate-btn"
+         data-role="tooltip" title="Add Rate Result"
+         data-source="available-results" data-target="results-table"
+         data-class="rate-res-cell" data-offset="10000">
+         Add Rate Result </button> </td>
+     </tr>
+     <tr>
+  		 <td><%= select_tag("available-results",options_from_collection_for_select(@results, 'rate_id', 'title'),{:size=>"6", :class=>"rate-box span3"}) %> </td>
+     </tr>
+   </table>
+   <ul class="sortable span3 rate-template-table" id="results-table">
+          <% @template.template_definitions.each do |column| %>
+            <% if column.rate.rate_type == "result" %>
+               <li tabindex="<%=autotab_with_offset(1000)%>" data-rateid="<%= column.rate_id %>" class="rate-cell rate-res-cell"
+                  data-role="tooltip" title="bolek">
+                 <i class="hover ui-icon ui-icon-arrowthick-2-n-s" style="display:inline-block" data-role="move-rate" title="Move rate"></i>
+                 <span><%= column.rate.title %></span>
+                 <i class="icon-trash hover right-justify" data-role="remove-rate" title="Remove from list"></i>
+               </li>
+            <% end %>
+          <% end %>
+    </ul>
+    <ul id="rate-billing-list" class="span3">
+      <li id="rate-billing-cell" class="rate-cell">BillingName</li>
+    </ul>
+</div>
+</div>

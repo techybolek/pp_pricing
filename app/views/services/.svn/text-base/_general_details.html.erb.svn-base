@@ -1,0 +1,77 @@
+<div class="span">
+  <div clas="controls controls-row">
+    <!-- Classification -->
+    <div class="span">
+      <label for="service_classification_value">Classification</label>
+      <%= select_tag "service[classification_value]", options_for_select(Service.order("classification_value").pluck("unique classification_value"), @service.classification_value),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    <!-- Provider -->
+    <div class="span">
+      <label for="service_provider_code">Provider</label>
+      <%= select_tag "service[provider_code]", options_from_collection_for_select(Provider.order("name").all, :provider_code, :code_and_name, @service.provider_code),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    <!-- Responsible Manager -->
+    <div class="span">
+      <label for="service_responsible_manager">Responsible Manager</label>
+      <%= text_field_tag("service[responsible_manager]", @service.responsible_manager, :placeholder=>"Responsible Manager", :maxlength=>"30")%>
+    </div>
+  </div>
+  
+  <div clas="controls controls-row">
+    <!-- Release Date -->
+    <div class="span">
+      <label for="service_effective_date">Release Date</label>
+      <input class="span2"
+             data-date-format="mm-dd-yyyy"
+             data-role="datepicker"
+             id="service_effective_date"
+             name="service[effective_date]"
+             type="text"
+             value="<%= @service.effective_date.to_date if @service.effective_date %>">
+    </div>
+    
+    <!-- Planned Release -->
+    <div class="span">
+      <label for="service_planned_release_date">Planned Release</label>
+      <input class="span2"
+             data-date-format="mm-dd-yyyy"
+             data-role="datepicker"
+             id="service_planned_release_date"
+             name="service[planned_release_date]"
+             type="text"
+             value="<%= @service.planned_release_date.to_date if @service.planned_release_date %>">
+    </div>
+    
+    <!-- Test Mode -->
+    <div class="span">
+      <label for="service_test_mode_ind">Test Mode</label>
+      <%= check_box 'service', 'test_mode_ind', :checked => @service.test_mode_ind %>
+    </div>
+    
+    <!-- Discontinued -->
+    <div class="span">
+      <label for="service_discontinue_indicator">Discontinued</label>
+      <%= check_box 'service', 'discontinue_indicator', :checked => @service.discontinue_indicator %>
+    </div>
+  </div>
+  
+  <div clas="controls controls-row">
+    <div class="span no-left-margin">
+      <!-- Billing Name -->
+      <div class="span">
+        <label for="service_billing_name_1">Billing Name</label>
+        <%= text_field_tag("service[billing_name_1]", @service.billing_name_1, :placeholder=>"Billing Name", :maxlength=>"30")%>
+      </div>
+      
+      <!-- Description -->
+      <div class="span">
+        <label for="service_descriptive_text">Description</label>
+        <%= text_area_tag 'service[descriptive_text]', @service.descriptive_text, rows: 2, maxlength: 360, class: 'span6' %>
+      </div>
+    </div>
+  </div>
+</div>

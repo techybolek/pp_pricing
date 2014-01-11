@@ -1,0 +1,24 @@
+<div class="span">
+  <div clas="controls controls-row">
+    <!-- Service Level -->
+    <div class="span">
+      <label for="service_tax_code">Tax Code</label>
+      <%= select_tag "service[tax_code]", options_for_select(TaxCodeVersion.uniq.pluck(:tax_code), @service.tax_code),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    <!-- Utility Code -->
+    <div class="span">
+      <label for="service_utility_indicator">Utility Code</label>
+      <%= select_tag 'service[utility_indicator]', options_for_select([['Unregulated', nil], ['Regulated', 'R']], @service.utility_indicator),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+    </div>
+    
+    <!-- Multi-point Taxation -->
+    <div class="span">
+      <label for="service_allow_multipoint_taxation_ind">Allow multi-point taxation</label>
+      <%= check_box 'service', 'allow_multipoint_taxation_ind', :checked => @service.allow_multipoint_taxation_ind %>
+    </div>
+  </div>
+  <div clas="controls controls-row"></div>
+</div>

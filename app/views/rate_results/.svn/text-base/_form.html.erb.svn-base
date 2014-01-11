@@ -1,0 +1,77 @@
+<% if @rate.errors.any? %>
+  <ul class="text-error">
+    <% @rate.errors.each do |error, message| %>
+      <li><%= RateResult.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@rate, :html => {:class=>"form-horizontal"}) do |f| %>
+  
+  <div class="form-actions">
+    <%= link_to "Cancel", :back, :class=> "btn" %>
+    <%= f.submit "Save", :class=> "btn btn-success" %>
+  </div>
+  
+  <%= f.hidden_field :evaluation_order, :value => "Ascending" %>
+  <div class="control-group">
+    <%= f.label :rate_code, :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :rate_code, :class=> "span2", :required=> true, :maxlength=> 10 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :name, :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title, :required=> true, :maxlength=> 50 %>
+    </div>
+  </div>
+ 
+ <div class="well well-small">
+  <div class="control-group">
+    <table>
+    <tr>
+    <td>
+    <%= f.label "Input Type", :class=> "control-label" %>
+    <div class="controls">
+      <%= select_tag(:select_input_type,  options_for_select([["Free-form", 1], ["Select from group", 2]]), :class=> "span2") %>
+    </div>
+    </td>
+    <td>
+      <%= f.label "Group code", {:class=> "control-label_in",:id=>"group_code_label"} %>
+    <div class="controls_in">
+      <%= f.select :group_code, @rate.group_codes, {:include_blank => ''}, :class=> "span2", :data => {:role => "select2"} %>
+    </div>
+    </td>
+    </tr>
+    </table>
+  </div>
+  
+  <div class="control-group">
+   <table>
+   <tr>
+   <td>
+    <%= f.label "Data Type", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.select :data_type, ["Decimal", "String", "Integer", "Boolean", "DateTime"],{}, :class=> "span2" %>
+    </div>
+   </td>
+   <td>
+      <%= f.label :precision, :class=> "control-label_in" %>
+      <div class="controls_in">
+        <%= f.text_field :precision, :maxlength=> 1, :class=> "span1" %>
+      </div>
+   </td>
+   </tr>
+   </table>
+   </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Attribute Path", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :rtti_path, :required=> true, :maxlength=> 100, :class=> "span6" %>
+    </div>
+  </div>
+<% end %>

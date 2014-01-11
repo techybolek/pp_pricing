@@ -1,0 +1,64 @@
+<div class="flash">
+  <% if flash[:success] || @success %>
+    <div class="alert alert-success"><%= flash[:success] || @success %>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+  <% end %>
+  <% if flash[:notice] || @notice %>
+    <div class="alert alert-info"><%= notice || @notice %>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+  <% end %>
+  <% if flash[:alert] || @alert %>
+    <% @alert ||= flash[:alert] %>
+    <% if @alert && @alert.respond_to?(:each) && !@alert.empty? %>
+      <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <ul>
+          <% @alert.each do |e| %>
+            <% e.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <div class="alert"><%= flash[:alert] || @alert %>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    <% end %>
+  <% end %>
+  <% if flash[:error] || @error %>
+    <% @error ||= flash[:error] %>
+    <% if @error && @error.respond_to?(:each) && !@error.empty? %>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <div class="alert alert-error">
+        <ul>
+          <% @error.each do |e| %>
+            <li><%=e %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <div class="alert alert-error"><%= flash[:error] || @error %>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    <% end %>
+  <% end %>
+  <div id="script-success" class="alert alert-success hidden">
+    <button type="button" class="close" data-role="hide-parent">&times;</button>
+    <div data-role="message"></div>
+  </div>
+  <div id="script-error" class="alert alert-error hidden">
+    <button type="button" class="close" data-role="hide-parent">&times;</button>
+    <div data-role="message"></div>
+  </div>
+  <div id="script-notice" class="alert alert-info hidden">
+    <button type="button" class="close" data-role="hide-parent">&times;</button>
+    <div data-role="message"></div>
+  </div>
+  <div id="script-alert" class="alert hidden">
+    <button type="button" class="close" data-role="hide-parent">&times;</button>
+    <div data-role="message"></div>
+  </div>
+</div>

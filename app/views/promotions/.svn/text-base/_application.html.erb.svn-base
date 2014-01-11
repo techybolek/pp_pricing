@@ -1,0 +1,66 @@
+<!-- Apply to new product line subscriptions only -->
+<div class="controls controls-row">
+  <label>
+    <%= check_box_tag 'promotion[apply_promotion_ind][]', 'P', (@promotion.apply_promotion_ind == 'P') %>
+    Apply to new product line subscriptions only
+  </label>
+</div>
+
+<!-- Apply to new subscriptions -->
+<div class="controls controls-row">
+  <label>
+    <%= check_box_tag 'promotion[apply_promotion_ind][]', 'N', (@promotion.apply_promotion_ind == 'N' || @promotion.apply_promotion_ind == 'B') %>
+    Apply to new subscriptions
+  </label>
+</div>
+
+<!-- First Activation Date -->
+<div class="controls controls-row">
+  <label class="span no-left-margin">
+    <%= check_box_tag 'promotion[apply_promotion_ind][]', 'E', (@promotion.apply_promotion_ind == 'E' || @promotion.apply_promotion_ind == 'B') %>
+    Apply to customer with a first activation date on or before
+  </label>
+  
+  <input class="span2"
+         data-date-format="mm-dd-yyyy"
+         data-role="datepicker"
+         id="promotion_first_activation_date"
+         name="promotion[first_activation_date]"
+         type="text"
+         value="<%= nullable_date(@promotion.first_activation_date) %>">
+</div>
+
+<!-- Apply on activation date -->
+<div class="controls controls-row">
+  <label>
+    <%= radio_button_tag 'promotion[apply_promotion_date_ind]', 'A', @promotion.apply_promotion_date_ind == "A" %>
+    Apply on activation date
+  </label>
+</div>
+
+<div class="controls controls-row">
+  <label class="span no-left-margin">
+    <%= radio_button_tag 'promotion[apply_promotion_date_ind]', 'C', @promotion.apply_promotion_date_ind == "C" %>
+    Apply on calendar date
+  </label>
+
+  <input class="span2"
+         data-date-format="mm-dd-yyyy"
+         data-role="datepicker"
+         id="promotion_apply_promotion_date"
+         name="promotion[apply_promotion_date]"
+         type="text"
+         value="<%= nullable_date(@promotion.apply_promotion_date) %>">
+</div>
+
+<div class="controls controls-row">
+  <label class="span no-left-margin" for="promotion_rollout_date">Rollout to existing customers on</label>
+
+  <input class="span2"
+         data-date-format="mm-dd-yyyy"
+         data-role="datepicker"
+         id="promotion_rollout_date"
+         name="promotion[rollout_date]"
+         type="text"
+         value="<%= nullable_date(@promotion.rollout_date) %>">
+</div>

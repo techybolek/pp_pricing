@@ -1,0 +1,63 @@
+<div class="controls controls-row">
+  <!-- Release Date -->
+  <div class="span">
+    <label for="product_effective_date">Release Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="product_effective_date"
+           name="product[effective_date]"
+           type="text"
+           value="<%= @product.effective_date.to_date if @product.effective_date %>">
+  </div>
+  
+  <!-- Planned Release Date -->
+  <div class="span">
+    <label for="product_planned_release_date">Planned Release Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="product_planned_release_date"
+           name="product[planned_release_date]"
+           type="text"
+           value="<%= @product.planned_release_date.to_date if @product.planned_release_date %>">
+  </div>
+  
+  <!-- Approval Date -->
+  <div class="span">
+    <label for="product_approval_date">Approval Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="product_approval_date"
+           name="product[approval_date]"
+           type="text"
+           value="<%= @product.approval_date.to_date if @product.approval_date %>">
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Operational Date -->
+  <div class="span">
+    <label for="product_operational_date">Operational Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="product_operational_date"
+           name="product[operational_date]"
+           type="text"
+           value="<%= @product.operational_date.to_date if @product.operational_date %>">
+  </div>
+  
+  <!-- Discontinue Date -->
+  <div class="span">
+    <label for="product_discontinue_date_time">Discontinue Date</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="product_discontinue_date_time"
+           name="product[discontinue_date_time]"
+           type="text"
+           value="<%= @product.discontinue_date_time.to_date if nullable_date(@product.discontinue_date_time) %>">
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="controls controls-row">
+  <!-- Promotion Code -->
+  <div class="span">
+    <label for="promotion_promotion_code">Code</label>
+    <%= text_field_tag("promotion[promotion_code]", @promotion.promotion_code, :class=>"span2", :placeholder=>"Code", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Promotion Name -->
+  <div class="span">
+    <label for="promotion_promotion_name">Name</label>
+    <%= text_field_tag("promotion[promotion_name]", @promotion.promotion_name, :class=>"span3", :placeholder=>"Name", :maxlength=>"60")%>
+  </div>
+  
+  <!-- Promotion Status -->
+  <div class="span">
+    <label for="promotion_promotion_status">Status</label>
+    <%= text_field_tag("promotion[promotion_status]", alternate_status(@promotion.promotion_status), :class=> "span2", :placeholder=>"Status", :readonly=>"readonly")%>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Offering Period Start -->
+  <div class="span">
+    <label for="promotion_offering_period_start_date">Offering Period Start</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="promotion_offering_period_start_date"
+           name="promotion[offering_period_start_date]"
+           type="text"
+           value="<%= @promotion.offering_period_start_date.to_date if @promotion.offering_period_start_date %>">
+  </div>
+  
+  <!-- Planned Release Date -->
+  <div class="span">
+    <label for="promotion_offering_period_end_date">Offering Period End</label>
+    <input class="span2"
+           data-date-format="mm-dd-yyyy"
+           data-role="datepicker"
+           id="promotion_offering_period_end_date"
+           name="promotion[offering_period_end_date]"
+           type="text"
+           value="<%= @promotion.offering_period_end_date.to_date if @promotion.offering_period_end_date %>">
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Test Mode -->
+  <div class="span">
+    <label for="promotion_test_mode_ind">Test Mode</label>
+    <%= check_box 'promotion', 'test_mode_ind', :checked => @promotion.test_mode_ind %>
+  </div>
+  
+  <!-- Change Group ID -->
+  <div class="span">
+    <label for="promotion_change_group_id">Change Group ID</label>
+    <%= text_field_tag("promotion[change_group_id]", @promotion.change_group_id, :class=> "span2", :placeholder=>"Change Group ID") %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Billing Name -->
+  <div class="span">
+    <label for="promotion_billing_name_1">Billing Name</label>
+    <%= text_field_tag("promotion[billing_name_1]", @promotion.billing_name_1, :class=> "span5", :placeholder=>"Billing Name") %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <!-- Description -->
+  <div class="span">
+    <label for="promotion_descriptive_text">Description</label>
+    <%= text_area_tag 'promotion[descriptive_text]', @promotion.descriptive_text, rows: 4, maxlength: 360, class: 'span7' %>
+  </div>
+</div>

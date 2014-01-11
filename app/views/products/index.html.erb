@@ -1,0 +1,101 @@
+<% content_for(:page_title) do "Products" end %>
+
+<h2>Search Products</h2>
+
+<div class="well well-small">
+  <form class="search form-inline" method="get">
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("product_filters[product_code]", session[:product_filters][:product_code],{:placeholder=>"Product Code"})%>
+        <%= text_field_tag("product_filters[product_name]", session[:product_filters][:product_name],{:placeholder=>"Product Name"})%>
+        <%= select_tag 'product_filters[provider_code]',
+              options_from_collection_for_select(Provider.uniq, :provider_code, :name, :selected=>session[:product_filters][:provider_code]),
+              :prompt => 'Supplier?',
+              :data => {:role => "select2"} %>
+        
+        <label>
+          <%= check_box_tag 'product_filters[search_all_versions]', true, session[:product_filters][:search_all_versions] %>
+          Include all Versions
+        </label>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= select_tag "product_filters[test_mode_ind]", options_for_select([["Yes","Y"],["No","N"]], session[:product_filters][:test_mode_ind]), { :prompt=>'Test Mode?', :data=>{:role=>'select2'}} %>
+        <%= text_field_tag("product_filters[change_group_id]", session[:product_filters][:change_group_id],{:placeholder=>"Change Group ID"})%>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("product_filters[associated_service_code]", session[:product_filters][:associated_service_code],{:placeholder=>"Associated Service Code"})%>
+        <%= text_field_tag("product_filters[associated_service_name]", session[:product_filters][:associated_service_name],{:placeholder=>"Associated Service Name"})%>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= select_tag 'product_filters[qualification_group_code]',
+              options_for_select( PricingStructureQual.order(:qualification_group_code).uniq.pluck(:qualification_group_code), :selected=>session[:product_filters][:qualification_group_code] ),
+              :prompt => 'Pricing Structure Qual Group',
+              :data => {:role => "select2"} %>
+              
+        <%= select_tag 'product_filters[qualification_value]',
+              options_for_select( PricingStructureQual.order(:qualification_value).uniq.pluck(:qualification_value), :selected=>session[:product_filters][:qualification_value] ),
+              :prompt => 'Pricing Structure Qual Value',
+              :data => {:role => "select2"} %>
+      </div>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+</div>
+
+
+<div class="well">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @products, "Code", "product_code" %></th>
+        <th><%=sortable @products, "Name", "product.name" %></th>
+        <th><%=sortable @products, "Version", "product_version_code" %></th>
+        <th><%=sortable @products, "Status", "effective_status" %></th>
+        <th><%=sortable @products, "Release Date", "effective_date" %></th>
+        <th><%=sortable @products, "Description", "descriptive_text" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= link_to product.product_code, edit_product_path(product.product_code, :version => product.product_version_code) %></td>
+          <td><%= link_to product.name, edit_product_path(product.product_code, :version => product.product_version_code) %></td>
+          <td><%= product.product_version_code %></td>
+          <td><%= alternate_status(product.effective_status) %></td>
+          <td><%= product.effective_date.to_date if product.effective_date %></td>
+          <td>
+            <% if product.descriptive_text && !product.descriptive_text.empty? %>
+              <i class="hover icon-list-alt" data-role="show-popover" data-placement="top"
+              data-content="<%= product.descriptive_text %>" data-original-title="<%= product.name %>" tabindex="0"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:products, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "product_filters[amount]",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:product_filters][:amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @products %>
+  </div>
+</div>

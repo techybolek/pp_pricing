@@ -1,0 +1,36 @@
+<div>
+<%= check_box_tag 'price_plan[service_independent_indicator]',
+                  'Y',
+                  rule.service_independent_indicator == 'Y',
+                  :disabled => true %>
+<label class="checkbox inline" for="price_plan_service_independent_indicator">This price plan is service independent</label>
+</div>
+<div class="bottom-padding">
+<%= check_box_tag 'price_plan[contributing_item_indicator]',
+                  'Y',
+                  rule.contributing_item_indicator == 'Y',
+                  :disabled => true %>
+<label class="checkbox inline" for="price_plan_contributing_item_indicator">This price plan also prices contributing items</label>
+</div>
+<div class="span5">
+  <table class="table table-hover table-striped">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    <% rule.services.each do |service| %>
+      <tr>
+        <td><%= service.service_code %></td>
+        <td><%= service.name %></td>
+        <td>
+          <i class="hover icon-list-alt pull-right"
+             data-role="show-popover"
+             data-content="<%= service.descriptive_text %>"
+             data-original-title="<%= service.name %>"
+             tabindex="0"></i>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

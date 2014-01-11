@@ -1,0 +1,11 @@
+  <%if @rule.target_type == "C" %>
+  <div class="control-group">
+    <div class="control-label" >Condition</div>
+      <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.selection_rule_id) %>"><%=@rule.name%></a>
+  </div>
+  <% else %>
+  <div class="control-group">
+    <div class="control-label" >Algorithm</div>
+      <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.selection_rule_id) %>"><%=@rule.name%></a>
+  </div>
+  <%end%>

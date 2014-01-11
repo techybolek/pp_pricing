@@ -1,0 +1,94 @@
+10
+
+dir
+19446
+http://odin/svn/tapestry/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views
+http://odin/svn/tapestry
+
+
+
+2014-01-10T18:53:33.149816Z
+19446
+dawhite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+25f42585-4ca4-6521-a335-cbda5b148679
+
+zonal_coverages
+dir
+
+event_creation_templates
+dir
+
+services
+dir
+
+rate_tables
+dir
+
+tariff_zones
+dir
+
+kaminari
+dir
+
+service_characteristics
+dir
+
+templates
+dir
+
+pricing_structures
+dir
+
+price_plans
+dir
+
+layouts
+dir
+
+products
+dir
+
+algorithm_selection_rules
+dir
+
+selection_rule_conditions
+dir
+
+rate_rows
+dir
+
+sessions
+dir
+
+tariff_model_areas
+dir
+
+rate_determinants
+dir
+
+algorithms
+dir
+
+promotions
+dir
+
+rate_results
+dir
+
+tariff_tier_tapers
+dir
+

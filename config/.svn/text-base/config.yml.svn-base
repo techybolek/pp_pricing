@@ -1,0 +1,14 @@
+development:
+  logout_url: http://localhost:3000/sessions/logout
+  welcome_url: http://localhost:3000
+  SOAP_WSDL: wsdl/sf.wsdl
+
+test:
+  logout_url:   http://162.70.0.43:8180/tapestry_welcome/sessions/logout
+  welcome_url: http://162.70.0.43:8180/tapestry_welcome
+  SOAP_WSDL: wsdl/sf.wsdl
+
+production:
+  logout_url:   http://162.70.0.43:8180/tapestry_welcome/sessions/logout
+  welcome_url: http://162.70.0.43:8180/tapestry_welcome
+  SOAP_WSDL: wsdl/sf.wsdl

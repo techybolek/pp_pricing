@@ -1,0 +1,37 @@
+<a data-role="tree-display" data-target="#tree-details" data-source="<%=rule.selection_rule_id%>">
+  <% case type %>
+  <% when 0 %>
+    <i class="icon-exchange"></i> 
+  <% when 1 %>
+    <i class="icon-ok"></i> 
+  <% when 2 %>
+    <i class="icon-remove"></i> 
+  <% end %>
+  <% if !rule.nil? && rule.condition_id %>
+    <strong>Ⓒ  </strong>
+  <% elsif !rule.nil? %>
+    <strong>Ⓟ  </strong>
+  <% end %>
+  <%= rule.name unless rule.nil? %>
+</a>
+
+<% if rule.true_rule_id || rule.false_rule_id %>
+  <ul>
+    <% if rule.true_rule_id == rule.false_rule_id %>
+      <li>
+        <%= render "tree_plan_selection_rule", :rule => PlanSelectionRuleSet.get_rule_info(rule.true_rule_id), :type => 0 %>
+      </li>
+    <% else %>
+      <% if rule.true_rule_id %>
+        <li>
+          <%= render "tree_plan_selection_rule", :rule => PlanSelectionRuleSet.get_rule_info(rule.true_rule_id), :type => 1 %>
+        </li>
+      <% end %>
+      <% if rule.false_rule_id %>
+        <li>
+          <%= render "tree_plan_selection_rule", :rule => PlanSelectionRuleSet.get_rule_info(rule.false_rule_id), :type => 2 %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>

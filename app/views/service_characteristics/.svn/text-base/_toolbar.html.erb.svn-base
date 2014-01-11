@@ -1,0 +1,22 @@
+<div class="container toolbar">
+  <div class="span3">
+    <div class="btn-toolbar span1 no-left-margin">
+      <div id="service-characteristic-loading" class="loading hide"></div>
+    </div>
+    
+    <div class="btn-toolbar touching_toolbars">
+      <div class="btn-group pull-right">
+        <button class="btn" id="cancel-service-characteristic" title="Cancel all unsaved changes">
+          <i class="icon-undo"></i> Cancel
+        </button>
+        <button id="save-service-characteristic"
+                class="btn btn-success"
+                title="Save all changes"
+                data-save-url="<%= edit_service_path(@characteristic) %>">
+          <i class="icon-hdd"></i> Save
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>

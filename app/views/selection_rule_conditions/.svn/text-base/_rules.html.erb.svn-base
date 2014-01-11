@@ -1,0 +1,37 @@
+  <%if @rule.target_type = "C" %>
+  <div class="control-group">
+    <div class="control-label" >Condition</div>
+     <div class="controls">
+      <a href="<%= price_plan_algorithm_selection_rule_selection_rule_condition_path(@price_plan.price_plan_version_id, @rule.selection_rule_id, @rule.condition_id) %>"><%=@rule.name%></a>
+     </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="control-group">
+    <div class="control-label" >Algorithm</div>
+    <div class="controls">
+      <a href="<%= price_plan_algorithm_selection_rule_algorithm_path(@price_plan.price_plan_version_id, @rule.selection_rule_id, @rule.algorithm_id) %>"><%=@rule.name%></a>
+    </div>
+  </div>
+  </div>
+  <%end%>
+
+  <div class="control-group">
+     <div class="control-label" >True Rule</div>
+     <% unless @rule.true_rule_id.nil? %>
+    <div class="controls">
+       <%true_rule=AlgorithmSelectionRule.get_rule_info(@rule.true_rule_id)%>
+      <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.true_rule_id) %>"><%true_rule.name%></a>
+    </div>
+    <%end%>
+  </div>
+
+  <div class="control-group">
+     <div class="control-label" >False Rule</div>
+     <% unless @rule.false_rule_id.nil? %>
+    <div class="controls">
+       <%false_rule=AlgorithmSelectionRule.get_rule_info(@rule.false_rule_id)%>
+      <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.false_rule_id) %>"><%=false_rule.name%></a>
+    </div>
+    <%end%>
+  </div>

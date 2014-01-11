@@ -1,0 +1,83 @@
+<% content_for(:page_title) do "Tariff Zones" end %>
+
+<h2>Search Tariff Zones</h2>
+
+<div class="well">
+  <form class="span10 form-inline search" method="get">
+    <input type="text"
+      placeholder="Code"
+      name="tariff_zone_code"
+      value="<%=session[:tariff_zone_code]%>" >
+    <input type="text"
+      placeholder="Effective Date"
+      name="effective_date"
+      data-role="datepicker"
+      data-date-format="mm-dd-yyyy"
+      value="<%=session[:effective_date]%>" >
+    <input type="text"
+      placeholder="Originating Point"
+      name="originating_point"
+      value="<%=session[:originating_point]%>" >
+    <input type="text"
+      placeholder="Terminating Point"
+      name="terminating_point" 
+      value="<%=session[:terminating_point]%>" >
+    <input type="text"
+      placeholder="Tariff Model Area Code"
+      name="tariff_model_area_code" 
+      value="<%=session[:tariff_model_area_code]%>" >
+    <input type="text"
+      placeholder="Tariff Model Area Name"
+      name="tariff_model_area_name" 
+      value="<%=session[:tariff_model_area_name]%>" >
+    <select name="test_mode" data-role="select2">
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == '' %> value="">Test Mode?</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == 'Y' %> value="Y">Yes</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == 'N' %> value="N">No</option>
+    </select>
+    <%= select_tag 'change_group_id',
+      options_for_select(@change_groups, :selected => session[:change_group_id]),
+      :prompt => 'Change Group ID?',
+      :data => {:role=>'select2'} %>
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+  
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @tzs, "Code", "tariff_zone_code" %></th>
+        <th><%=sortable @tzs, "Name", "name" %></th>
+        <th><%=sortable @tzs, "Test Mode", "test_mode_ind" %></th>
+        <th class="pull-right">Description</th>
+      </tr>
+    </thead>
+    <% @tzs.each do |tzs| %>
+      <tr>
+        <td><%= link_to tzs.tariff_zone_code, tariff_zone_path(tzs.tariff_zone_version_id) %></td>
+        <td><%= link_to tzs.name, tariff_zone_path(tzs.tariff_zone_version_id) %></td>
+        <td><%= tzs.test_mode_word %></td>
+        <td>
+          <% if tzs.descriptive_text %>
+            <i class="hover icon-list-alt pull-right" data-role="show-popover" data-placement="left" 
+            data-content="<%= tzs.descriptive_text %>" data-original-title="<%= tzs.name %>" tabindex="0"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:tariff_zones, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:tariff_zone_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @tzs %>
+  </div>
+</div>

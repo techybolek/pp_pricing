@@ -1,0 +1,25 @@
+<div class="controls controls-row">
+  <!-- Service Code -->
+  <div class="span">
+    <label for="service_service_code">Code</label>
+    <%= text_field_tag("service[service_code]", @service.service_code, :class=>"span2", :placeholder=>"Code", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Service Version -->
+  <div class="span">
+    <label for="service_service_version_code">Version</label>
+    <%= text_field_tag("service[service_version_code]", @service.service_version_code, :class=>"span2", :placeholder=>"Version", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Service Name -->
+  <div class="span">
+    <label for="service_name">Name</label>
+    <%= text_field_tag("service[name]", @service.name, :class=>"span2", :placeholder=>"Name", :maxlength=>"60")%>
+  </div>
+  
+  <!-- Service Status -->
+  <div class="span">
+    <label for="service_effective_status">Status</label>
+    <%= text_field_tag("service[effective_status]", alternate_status(@service.effective_status), :class=> "span2", :placeholder=>"Status", :readonly=>"readonly")%>
+  </div>
+</div>

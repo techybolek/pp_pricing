@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Product Code</th>
+    <th>Product Name</th>
+    <th>Version</th>
+    <th>Pricing Structure Code</th>
+    <th>Pricing Structure Name</th>
+  </tr>
+  
+  <% @promotion.pricing_structures.each do |structure| %>
+    <tr>
+      <td><%= structure.product_code %></td>
+      <td><%= structure.product_name %></td>
+      <td><%= structure.product_version_code %></td>
+      <td><%= structure.pricing_structure_code %></td>
+      <td><%= structure.name %></td>
+    </tr>
+  <% end %>
+</table>

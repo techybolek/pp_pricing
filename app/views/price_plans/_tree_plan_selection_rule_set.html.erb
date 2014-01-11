@@ -1,0 +1,47 @@
+<div id="price-plan-selection-rule-set-tree" style="overflow-x: auto;">
+  <ul>
+    <% draft = PlanSelectionRuleSet.find_selection_rule_set_draft %>
+    <% if draft.size > 0 %> <!-- If there is a draft for the current plan selection rule set -->
+      <% draft = draft.first %>
+      <li id="price-plan-selection-rule-set-draft">
+        <a>
+          <i class="icon-folder-open"></i> Draft</a>
+        <ul>
+          <li>
+            <a>
+              <i class="icon-sitemap"></i> Plan Selection Rule Set</a>
+            <ul>
+              <li>
+                <a>
+                  <i class="icon-folder-open"></i> Selection Rules
+                </a>
+                <ul>
+                  <li>
+                    <%= render "tree_plan_selection_rule", :rule => PlanSelectionRuleSet.get_rule_info(draft.plan_selection_root_rule_id), :type=>1 %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+    <% set = PlanSelectionRuleSet.find_selection_rule_set.first %>
+    <li>
+      <a>
+        <i class="icon-sitemap"></i> Plan Selection Rule Set - <%= set.effective_date.to_date %></a>
+      <ul>
+        <li>
+          <a>
+            <i class="icon-folder-open"></i> Selection Rules
+          </a>
+          <ul>
+            <li>
+              <%= render "tree_plan_selection_rule", :rule => PlanSelectionRuleSet.get_rule_info(set.plan_selection_root_rule_id), :type=>1 %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

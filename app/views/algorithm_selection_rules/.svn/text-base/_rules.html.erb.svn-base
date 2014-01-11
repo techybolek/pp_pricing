@@ -1,0 +1,15 @@
+  <div class="control-group">
+    <div class="control-label" >True Rule</div>
+    <% unless @rule.true_rule_id.nil? %>
+       <%true_rule=AlgorithmSelectionRule.get_rule_info(@rule.true_rule_id)%>
+       <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.true_rule_id) %>"><%=true_rule.name%></a>
+    <%end%>
+  </div>
+
+  <div class="control-group">
+    <div class="control-label" >False Rule</div>
+    <% unless @rule.false_rule_id.nil? %>
+      <%false_rule=AlgorithmSelectionRule.get_rule_info(@rule.false_rule_id)%>
+      <a href="<%= price_plan_algorithm_selection_rule_path(@price_plan.price_plan_version_id, @rule.false_rule_id) %>"><%=false_rule.name%></a>
+    <%end%>
+  </div>

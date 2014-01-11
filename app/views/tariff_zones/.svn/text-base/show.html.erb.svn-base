@@ -1,0 +1,11 @@
+<% content_for(:page_title) do @tz.tariff_zone_code + " | Tariff Zone" end %>
+
+<h2>Tariff Zone</h2>
+<div class="well">
+  <%= render "header" %>
+</div>
+<div class="well">
+  <div class="container">
+    <%= render "zonal_components" %>
+  </div>
+</div>

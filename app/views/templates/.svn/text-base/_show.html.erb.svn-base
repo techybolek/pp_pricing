@@ -1,0 +1,8 @@
+<div id='usage-template-container'
+   data-url="<%= template_update_with_rates_path(@template.template_id) %>" 
+	data-loadurl="<%= template_path(@template.template_id) %>"
+	data-approveurl="<%= template_approve_path(@template.template_id) %>">
+  <%= render "attribs" %>
+  <%= render "toolbar" %>
+  <%= render "rates" %>
+</div>

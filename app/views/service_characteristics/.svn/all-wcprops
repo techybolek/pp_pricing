@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tapestry/!svn/ver/19350/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics
+END
+_type_details.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/_type_details.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/index.html.erb
+END
+_basic_data.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/_basic_data.html.erb
+END
+_distinct_value.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/_distinct_value.html.erb
+END
+_continuous_value.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/tapestry/!svn/ver/19350/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/_continuous_value.html.erb
+END
+_toolbar.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/views/service_characteristics/_toolbar.html.erb
+END

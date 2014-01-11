@@ -1,0 +1,13 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Group</th>
+    <th>Value</th>
+  </tr>
+  
+  <% @structure.qualifications.each do |qualification| %>
+    <tr>
+      <td><%= qualification.qualification_group_name %></td>
+      <td><%= qualification.qualification_value_name %></td>
+    </tr>
+  <% end %>
+</table>

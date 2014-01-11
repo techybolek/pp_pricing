@@ -1,0 +1,9 @@
+<table class="table table-striped table-hover">
+  <tr><th>Postal Code</th></tr>
+  
+  <% @service.postal_codes.each do |postal| %>
+    <tr>
+      <td><%= postal.postal_code %></td>
+    </tr>
+  <% end %>
+</table>

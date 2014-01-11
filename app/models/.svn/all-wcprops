@@ -1,0 +1,383 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/tapestry/!svn/ver/19446/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models
+END
+product.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tapestry/!svn/ver/19444/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/product.rb
+END
+tariff_model_area.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tapestry/!svn/ver/19127/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_model_area.rb
+END
+promotion.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tapestry/!svn/ver/19428/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/promotion.rb
+END
+service_level.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_level.rb
+END
+sensitivity_domain_condition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/sensitivity_domain_condition.rb
+END
+rate_result.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/18371/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate_result.rb
+END
+tax_code_version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tax_code_version.rb
+END
+change_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tapestry/!svn/ver/18531/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/change_group.rb
+END
+technical_service_code.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/19080/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/technical_service_code.rb
+END
+zonal_component.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/tapestry/!svn/ver/18520/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/zonal_component.rb
+END
+service_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_group.rb
+END
+price_plan.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tapestry/!svn/ver/19292/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/price_plan.rb
+END
+promotion_term.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tapestry/!svn/ver/19424/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/promotion_term.rb
+END
+measure_unit_profile.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/measure_unit_profile.rb
+END
+selection_rule_condition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18759/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/selection_rule_condition.rb
+END
+algorithm_selection_rule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/algorithm_selection_rule.rb
+END
+general_code_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tapestry/!svn/ver/18228/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/general_code_group.rb
+END
+characteristic_value.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/characteristic_value.rb
+END
+rate_determinant.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tapestry/!svn/ver/18228/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate_determinant.rb
+END
+tariff_week.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/18819/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_week.rb
+END
+calculation_option.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/calculation_option.rb
+END
+algorithm.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tapestry/!svn/ver/19360/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/algorithm.rb
+END
+tariff_time.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_time.rb
+END
+provider.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tapestry/!svn/ver/19325/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/provider.rb
+END
+service_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tapestry/!svn/ver/19252/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_association.rb
+END
+rate_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tapestry/!svn/ver/18715/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate_table.rb
+END
+price_plan_option.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tapestry/!svn/ver/18589/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/price_plan_option.rb
+END
+service_characteristic.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_characteristic.rb
+END
+process_step.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/process_step.rb
+END
+service_coverage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/tapestry/!svn/ver/18819/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_coverage.rb
+END
+template.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tapestry/!svn/ver/18590/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/template.rb
+END
+calculation_option_value.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/19162/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/calculation_option_value.rb
+END
+rate_row.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tapestry/!svn/ver/18713/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate_row.rb
+END
+product_version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/tapestry/!svn/ver/19180/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/product_version.rb
+END
+service_journalization.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_journalization.rb
+END
+tariff_tier_taper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tapestry/!svn/ver/19059/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_tier_taper.rb
+END
+parameter_item.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tapestry/!svn/ver/19334/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/parameter_item.rb
+END
+calculation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/18548/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/calculation.rb
+END
+service.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tapestry/!svn/ver/19446/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service.rb
+END
+service_characteristic_value.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_characteristic_value.rb
+END
+pricing_structure_ect.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/19292/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/pricing_structure_ect.rb
+END
+summary_group.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tapestry/!svn/ver/18709/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/summary_group.rb
+END
+pricing_structure.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tapestry/!svn/ver/19417/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/pricing_structure.rb
+END
+tariff_model_entry.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tapestry/!svn/ver/19075/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_model_entry.rb
+END
+tool.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/18888/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tool.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/18571/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/user.rb
+END
+billing_name.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tapestry/!svn/ver/18496/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/billing_name.rb
+END
+service_postal.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_postal.rb
+END
+template_definition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tapestry/!svn/ver/18249/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/template_definition.rb
+END
+general_code_item.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tapestry/!svn/ver/18850/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/general_code_item.rb
+END
+service_usage_mode.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/tapestry/!svn/ver/19120/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/service_usage_mode.rb
+END
+sensitivity.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/18819/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/sensitivity.rb
+END
+rate_cell.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tapestry/!svn/ver/18621/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate_cell.rb
+END
+rate.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/18811/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/rate.rb
+END
+pricing_structure_qual.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/19335/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/pricing_structure_qual.rb
+END
+priceable_characteristic.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/19312/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/priceable_characteristic.rb
+END
+zonal_coverage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tapestry/!svn/ver/18819/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/zonal_coverage.rb
+END
+event_creation_template.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tapestry/!svn/ver/19446/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/event_creation_template.rb
+END
+measure_unit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tapestry/!svn/ver/18848/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/measure_unit.rb
+END
+plan_selection_rule_set.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tapestry/!svn/ver/18850/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/plan_selection_rule_set.rb
+END
+band.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/tapestry/!svn/ver/19055/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/band.rb
+END
+product_version_service.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/tapestry/!svn/ver/19252/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/product_version_service.rb
+END
+tariff_zone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tapestry/!svn/ver/18754/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/app/models/tariff_zone.rb
+END

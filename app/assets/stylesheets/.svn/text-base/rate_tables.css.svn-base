@@ -1,0 +1,16 @@
+tr.deleted_row,
+.table tbody tr.deleted_row > td {
+  text-decoration: line-through;
+  background-color: #fcf8e3;
+}
+
+.deleted_row > td > [class^="icon-"],
+.deleted_row > td > input {
+  display: none;
+}
+
+.modal-wide {
+  width: 90%;
+  margin-left: -45%;
+  margin-right: 0px;
+}

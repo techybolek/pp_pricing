@@ -1,0 +1,10 @@
+<% content_for(:page_title) do "Sign in" end %>
+
+<div>
+  <%= form_tag({:controller=>"sessions", :action=> "create"}, {:class=>"form-signin"}) do %>
+    <h2 class='Form-signin-heading'>Please sign in</h2>
+    <input type="text" name="username" class="input-block-level" required="required" placeholder="Username">
+    <input type="password" name="password" class="input-block-level" required="required" placeholder="Password">
+    <button class="btn btn-large btn-primary" type="submit"><i class="icon-signin"></i> Sign in</button>
+  <% end %>
+</div>

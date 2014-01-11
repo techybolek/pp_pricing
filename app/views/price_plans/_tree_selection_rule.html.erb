@@ -1,0 +1,32 @@
+  <li>
+    <a data-role="tree-display" data-target="#tree-details" data-source="<%=rule.selection_rule_id%>">
+      <%= rule_condition_type(rule, parent) %>
+      
+      <%= rule_type(rule) %>
+      
+      <%= rule.name %>
+    </a>
+    
+    <% if rule.condition_id.nil? %>
+      <%= render "process_step_branches", :algorithm => rule,
+                                          :process_steps => all_process_steps.select{|i| i.algorithm_id == rule.algorithm_id} %>
+    <% end %>
+    
+    <% if rule.true_rule_id || rule.false_rule_id %>
+      <ul>
+        <% if rule.true_rule_id || (rule.true_rule_id == rule.false_rule_id) %>
+          <%= render "tree_selection_rule", :rule => nodes[rule.true_rule_id],
+                                            :parent => rule,
+                                            :nodes => nodes,
+                                            :all_process_steps => all_process_steps %>
+        <% end %>
+        
+        <% if rule.false_rule_id && (rule.true_rule_id != rule.false_rule_id) %>
+          <%= render "tree_selection_rule", :rule => nodes[rule.false_rule_id],
+                                            :parent => rule,
+                                            :nodes => nodes,
+                                            :all_process_steps => all_process_steps %>
+        <% end %>
+      </ul>
+    <% end %>
+  </li>

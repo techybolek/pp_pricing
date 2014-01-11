@@ -1,0 +1,84 @@
+<% content_for(:page_title) do @structure.pricing_structure_code + " | Pricing Structure" end %>
+
+<div class="container">
+  <div style="height:60px;">
+    <div class="affix-top" data-spy="affix" data-offset-top="128" style="z-index:999; margin: 0px auto; background-color: #F6F4F0">
+      <div class="span">
+        <h2>Pricing Structure <small><%= @structure.pricing_structure_code %> - <%= @structure.name %> - <%= @structure.start_date %></small></h2>
+      </div>
+      
+      <div class="pull-right" style:"margin-left: auto;">
+        <%= render "toolbar" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  
+  <!-- Pricing Structure Overview -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Pricing Structure Overview
+    </h4>
+    <div class="collapse in">
+      <%= render "pricing_structure_overview" %>
+    </div>
+  </div>
+  
+  <!-- Basic Pricing Structure Data -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Basic Pricing Structure Data
+    </h4>
+    <div class="collapse in">
+      <%= render "basic_data" %>
+    </div>
+  </div>
+  
+  <!-- Basic Pricing Structure Data -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Qualifications
+    </h4>
+    <div class="collapse in">
+      <%= render "qualifications" %>
+    </div>
+  </div>
+  
+  <!-- Event Creation Templates -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Event Creation Templates
+    </h4>
+    <div class="collapse in">
+      <%= render "event_creation_templates" %>
+    </div>
+  </div>
+  
+  <!-- Price Plans -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Price Plans
+    </h4>
+    <div class="collapse in">
+      <%= render "price_plans" %>
+    </div>
+  </div>
+  
+  <!-- Promotions -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Promotions
+    </h4>
+    <div class="collapse in">
+      <%= render "promotions" %>
+    </div>
+  </div>
+</form>

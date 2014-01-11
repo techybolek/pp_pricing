@@ -1,0 +1,67 @@
+<div class="span" style="width:30%">
+  <h5>Product Timeline</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Product Version</th>
+      <th>Status</th>
+      <th>Released</th>
+    </tr>
+    
+    <% @product.versions.each do |version| %>
+    <tr>
+      <td><%= link_to version.product_version_code, edit_product_path(version.product_code, version: version.product_version_code) %></td>
+      <td><%= alternate_status(version.effective_status) %></td>
+      <td><%= version.effective_date.to_date if version.effective_date %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>
+
+<div class="span" style="width:30%">
+  <h5>Pricing Structures</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Start Date</th>
+    </tr>
+    
+    <% @product.pricing_structures.each do |pricing| %>
+    <tr>
+      <td><%= link_to(
+                pricing.pricing_structure_code,
+                edit_pricing_structure_path(
+                  pricing.pricing_structure_code,
+                  product: pricing.product_code,
+                  version: pricing.product_version_code
+                )
+              ) %>
+      </td>
+      <td><%= pricing.name %></td>
+      <td><%= pricing.start_date.to_date if pricing.start_date %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>
+
+<div class="span" style="width:30%">
+  <h5>Services</h5>
+  <table class="table table-condensed">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Start Date</th>
+    </tr>
+    
+    <% @product.services.each do |service| %>
+    <tr>
+      <td><%= link_to service.service_code, edit_service_path(service.service_code, version: service.service_version_code) %></td>
+      <td><%= service.name %></td>
+      <td><%= service.effective_date.to_date if service.effective_date %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+</div>

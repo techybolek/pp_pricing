@@ -1,0 +1,30 @@
+<table class="table table-condensed no-bottom-margin borderless">
+    <tbody>
+      <tr>
+        <th width="20%">Code</th>
+        <th width="20%">Name</th>
+        <th width="30%">Billing Name</th>
+        <th width="30%">Billing Name (Alternate)</th>
+      </tr>
+      <tr>
+        <td><%= @zc.zonal_coverage_code %></td>
+        <td><%= @zc.name %></td>
+        <td><%= @zc.billing_name_1 %></td>
+        <td><%= @zc.billing_name_2 %></td>
+      </tr>
+    </tbody>
+</table>
+<table class="table table-condensed borderless">
+  <tbody>
+    <tr>
+      <th width="20%">Test Mode</th>
+      <th width="20%">Change Group</th>
+      <th width="60%">Description</th>
+    </tr>
+    <tr>
+      <td><%= @zc.test_mode_word %></td>
+      <td><%= @zc.change_group_id %></td>
+      <td><%= @zc.descriptive_text %></td>
+    </tr>
+  </tbody>
+</table>

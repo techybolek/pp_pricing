@@ -1,0 +1,66 @@
+<% content_for(:page_title) do "Rate Tables" end %>
+
+<h2>Search Rate Tables</h2>
+
+<div class="well">
+  <a href="<%=new_rate_table_path%>">
+    <i class="icon-plus hover pull-right" title="Create a new rate table"></i>
+  </a>
+  <form class="span8 form-horizontal search" method="get">
+    <input type="text"
+      class="input-large"
+      placeholder="Table Name"
+      name="rate_table_name"
+      value="<%=session[:rate_table_name]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Template Name"
+      name="template_name"
+      value="<%=session[:usage_template_name]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Table Status"
+      name="rate_table_status"
+      value="<%=session[:rate_table_status]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Template Code"
+      name="template_code"
+      value="<%=session[:usage_template_code]%>" >
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @tables, "Table Name", "title" %></th>
+        <th><%=sortable @tables, "Template Code", "template_code" %></th>
+        <th><%=sortable @tables, "Template Name", "template_name" %></th>
+        <th><%=sortable @tables, "Status", "rate_tables.effective_status" %></th>
+      </tr>
+    </thead>
+      <% @tables.each do |table| %>
+        <tr>
+          <td><%= link_to table.title, rate_table_path(table.rate_table_id) %></td>
+          <td><%= link_to table.template_code, template_path(table.template_id) %></td>
+          <td><%= link_to table.template_name, template_path(table.template_id) %></td>
+          <td><%= table.effective_status %></td>
+        </tr>
+      <% end %>
+  </table>
+  
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:rate_tables, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:rate_tables_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @tables %>
+  </div>
+</div>

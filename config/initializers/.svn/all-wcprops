@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tapestry/!svn/ver/19127/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/session_store.rb
+END
+oracle.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/tapestry/!svn/ver/19127/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/oracle.rb
+END
+secret_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/secret_token.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/backtrace_silencers.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/mime_types.rb
+END
+wrap_parameters.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tapestry/!svn/ver/18218/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/config/initializers/wrap_parameters.rb
+END

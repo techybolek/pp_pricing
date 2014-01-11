@@ -1,0 +1,41 @@
+<div class="container toolbar">
+  <div class="span5">
+    <div class="btn-toolbar span1 no-left-margin">
+      <div id="service-loading" class="loading hide"></div>
+    </div>
+    
+    <div class="btn-toolbar touching_toolbars">
+      <div class="btn-group pull-right">
+        <button class="btn" id="cancel-service" title="Cancel all unsaved changes">
+          <i class="icon-undo"></i> Cancel
+        </button>
+        <button id="save-service"
+                class="btn btn-success"
+                title="Save all changes"
+                <%= 'disabled="disabled"'.html_safe if @service.effective_status == "ACTIVE" %>
+                data-save-url="<%= edit_service_path(@service.service_code, :version => @service.service_version_code) %>">
+          <i class="icon-hdd"></i> Save
+        </button>
+        <a class="btn"
+           <% if @service.effective_status == "DRAFT" %>
+             href="<%= edit_service_path(@service.service_code, :version => @service.service_version_code)%>"
+           <% else %>
+             <%= 'disabled="disabled"'.html_safe %>
+           <% end %>
+           title="Approve and set to active status">
+          <i class="icon-check"></i> Approve
+        </a>
+        <a class="btn"
+           <% if @service.effective_status == "ACTIVE" %>
+             href="<%= edit_service_path(@service.service_code, :version => @service.service_version_code) %>"
+           <% else %>
+             <%= 'disabled="disabled"'.html_safe %>
+           <% end %>
+           title="Revert status to Draft">
+          <i class="icon-edit"></i> Revert to Draft
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>

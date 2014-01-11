@@ -1,0 +1,83 @@
+.rate-cell {
+    border: 1px solid #BFBFBF;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: #D5E1F3;
+    background: -moz-linear-gradient(top, #BED1EC, #D5E1F3);
+    background: -webkit-linear-gradient(top, #BED1EC, #D5E1F3);
+    background: -ms-linear-gradient(top, #BED1EC, #D5E1F3);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 1px;
+}
+
+.sortable .ui-selecting {
+    background-color: #9BB7E2;
+    background: -moz-linear-gradient(top, #B1C8E9, #9BB7E2);
+    background: -webkit-linear-gradient(top, #B1C8E9, #9BB7E2);
+    background: -ms-linear-gradient(top, #B1C8E9, #9BB7E2);
+}
+.sortable .ui-selected {
+    background-color: #BED1EC;
+    background: -moz-linear-gradient(top, #D5E1F3, #BED1EC);
+    background: -webkit-linear-gradient(top, #D5E1F3, #BED1EC);
+    background: -ms-linear-gradient(top, #D5E1F3, #BED1EC);
+}
+
+.rate-det-cell {
+}
+
+.rate-res-cell {
+}
+
+#rate-billing-list {
+  list-style: none;
+  margin: 0px;
+}
+
+#rate-billing-cell {
+  margin-top: 0px;
+}
+
+#rate_prompt {
+    position:absolute;
+    display:none;
+    background-color: #f2f2f2;
+    border:1px solid #d9d9d9;
+    padding:2px;
+}
+
+#rate_separator {
+    width: 5px;
+}
+
+
+.rate-container {
+  width:220px;
+  min-height:195px;
+  margin-bottom:2px;
+}
+
+#results-container {
+  float:right;
+}
+
+#determinants-container {
+  float:left;
+  margin-right:4px;
+}
+
+.rate-box {
+  height:150px; 
+}
+
+.add-rate-btn {
+}
+
+.rate-template-table {
+  margin: 0px;
+}
+
+.right-justify {
+  float: right;
+}

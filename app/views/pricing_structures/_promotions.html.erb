@@ -1,0 +1,26 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Description</th>
+  </tr>
+  
+  <% @structure.promotions.each do |promotion| %>
+    <tr>
+      <td><%= promotion.promotion_code %></td>
+      <td><%= promotion.promotion_name %></td>
+      <td><%= promotion.promotion_status %></td>
+      <td><%= promotion.offering_period_start_date %></td>
+      <td><%= promotion.offering_period_end_date %></td>
+      <td>
+        <% if promotion.descriptive_text && !promotion.descriptive_text.empty? %>
+          <i class="hover icon-list-alt" data-role="show-popover" data-placement="left" 
+          data-content="<%= promotion.descriptive_text %>" tabindex="0"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

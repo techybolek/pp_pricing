@@ -1,0 +1,172 @@
+<table id="rate-table" class="table table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <% rates = @table.rates %>
+      <% rows = @table.rate_rows %>
+      <th><input type="checkbox" data-role="checkall" data-check-name="rows[]"></th>
+      <% rates.each do |rate| %>
+        <th>
+          <%= rate.title %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% rows.each do |row| %>
+      <% cells = row.get_cells(@table.template_id) %>
+      <tr data-row="<%= row.rate_row_id %>">
+        <td>
+          <input type="checkbox" class="no-top-margin" name="rows[]">
+          <i class="icon-copy hover" title="Copy row" data-role="copy-rate-row"></i>
+          <i class="icon-trash hover" title="Delete row" data-role="delete-rate-row"></i>
+        </td>
+        <% rates.each do |rate| %>
+        <td>
+          <% if rate.group_code && !rate.group_code.empty? %>
+            <a data-type="select"
+               data-role="editable"
+               tabindex="<%=autotab%>"
+               title="Enter <%=rate.title%>"
+               data-saved-value="<%= cells.select{|v| v.rate_id == rate.rate_id }.first.value%>"
+               data-source="<%= general_code_item_path(rate.group_code) %>"
+               data-name="existing_rows[<%=row.rate_row_id%>][<%=rate.rate_id%>]"
+               data-value="<%= cells.select{|v| v.rate_id == rate.rate_id }.first.value%>">
+               <%= cells.select{|v| v.rate_id == rate.rate_id }.first.group_code_description(rate.group_code) %>
+            </a>
+          <% else %>
+            <a data-type="text"
+               data-role="editable"
+               title="Enter <%=rate.title%>"
+               tabindex="<%=autotab%>"
+               data-saved-value="<%= cells.select{|v| v.rate_id == rate.rate_id }.first.value%>"
+               data-name="existing_rows[<%=row.rate_row_id%>][<%=rate.rate_id%>]">
+               <%= cells.select{|v| v.rate_id == rate.rate_id }.first.value%>
+            </a>
+          <% end %>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+    
+    <!-- Copied Rows -->
+    <% @new_rows.each_with_index do |row, index| %>
+      <% cells = row.get_cells(@table.template_id) %>
+      <tr data-row="new">
+        <td>
+          <input type="checkbox" class="no-top-margin" name="rows[]">
+          <i class="icon-copy hover" title="Copy row" data-role="copy-rate-row"></i>
+          <i class="icon-trash hover" title="Delete row" data-role="delete-rate-row"></i>
+        </td>
+        <% rates.each do |rate| %>
+        <td>
+          <% cell = cells.select{|v| v.rate_id == rate.rate_id }.first %>
+          <% if rate.group_code && !rate.group_code.empty? %>
+            <a class="editable-unsaved"
+               data-type="select"
+               data-role="editable"
+               tabindex="<%=autotab%>"
+               title="Enter <%=rate.title%>"
+               data-saved-value="<%= cell.value unless cell.nil? %>"
+               data-source="<%= general_code_item_path(rate.group_code) %>"
+               data-name="new_rows[<%=index%>][<%=rate.rate_id%>]"
+               data-value="<%= cell.value unless cell.nil? %>">
+               <%= cell.group_code_description(rate.group_code)  unless cell.nil? %>
+            </a>
+          <% else %>
+            <a class="editable-unsaved"
+               data-type="text"
+               data-role="editable"
+               title="Enter <%=rate.title%>"
+               tabindex="<%=autotab%>"
+               data-saved-value="<%= cell.value unless cell.nil? %>"
+               data-name="new_rows[<%=index%>][<%=rate.rate_id%>]">
+               <%= cell.value unless cell.nil? %>
+            </a>
+          <% end %>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+    
+    
+    <tr class="hidden">
+      <td>
+        <input type="checkbox" class="no-top-margin" name="rows[]">
+        <i class="icon-copy hover" title="Copy row" data-role="copy-rate-row"></i>
+        <i class="icon-trash hover" title="Delete row" data-role="delete-rate-row"></i>
+      </td>
+      <% rates.each do |rate| %>
+        <td>
+          <% if rate.group_code && !rate.group_code.empty? %>
+            <a data-type="select"
+               class="editable-unsaved"
+               title="Enter <%=rate.title%>"
+               data-role="editable"
+               data-saved-value=""
+               data-source="<%= general_code_item_path(rate.group_code) %>"
+               data-name="[<%=rate.rate_id%>]">
+            </a>
+          <% else %>
+            <a data-type="text"
+               class="editable-unsaved"
+               title="Enter <%=rate.title%>"
+               data-role="editable"
+               data-saved-value=""
+               data-name="[<%=rate.rate_id%>]">
+            </a>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<div id="edit-rate-rows" class="modal hide fade modal-wide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Edit selected rate rows</h3>
+  </div>
+  <div class="modal-body">
+    <table class="table table-striped table-hover table-condensed">
+      <thead>
+        <tr>
+          <% rates.each do |rate| %>
+            <th>
+              <%= rate.title %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% rates.each_with_index do |rate, index| %>
+            <% position = 'right' %>
+            <% position = 'left' if index == rates.length-1 %>
+            <td>
+              <% if rate.group_code && !rate.group_code.empty? %>
+                <a data-type="select"
+                   title="Enter <%=rate.title%>"
+                   data-role="editable"
+                   data-placement="<%= position %>"
+                   data-source="<%= general_code_item_path(rate.group_code) %>"
+                   data-name="[<%=rate.rate_id%>]">
+                </a>
+              <% else %>
+                <a data-type="text"
+                   title="Enter <%=rate.title%>"
+                   data-role="editable"
+                   data-placement="<%= position %>"
+                   data-name="[<%=rate.rate_id%>]">
+                </a>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a id="save-selected-changes" class="btn btn-primary">Save changes</a>
+  </div>
+</div>

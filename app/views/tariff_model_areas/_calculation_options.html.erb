@@ -1,0 +1,26 @@
+<% @tma.tma_calculation_options.each do |option| %>
+  <div class="key-value">
+    <div class="key"><%= option.calculation_option_name %>
+      <% if option.descriptive_text && !option.descriptive_text.empty? %>
+        <i class="hover icon-list-alt pull-right" tabindex="0" data-role="show-popover" data-placement="top" 
+          data-content="<%= option.descriptive_text %>"></i>
+      <% end %>
+    </div>
+    
+    <div class="value">
+      <a data-role="editable"
+         data-value="<%= option.value_or_default %>"
+         title="<%= option.calculation_option_name %>"
+         data-name="calculation_options[][<%= option.calculation_option_id %>]"
+         <% if option.valid_values_group_rd != '0' %>
+           data-type="select"
+           data-source="<%= general_code_item_path(option.valid_values_group_rd) %>"
+         <% end %>
+      ></a>
+    </div>
+  </div>
+<% end %>
+
+<% if @tma.tma_calculation_options.empty? %>
+  No calculation options for the selected calculation.
+<% end %>

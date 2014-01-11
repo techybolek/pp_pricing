@@ -1,0 +1,20 @@
+<div id='pptoolbar' class="container toolbar affix-top" data-spy="affix" data-offset-top="325">
+  <div class="btn-toolbar touching_toolbars span8 no-left-margin">
+    <div class="btn-group">
+      <button class="btn" id="cancel-rates" datarole="tooltip" title="Select Cancel to Cancel all changes">
+        <i class="icon-undo"></i> Cancel
+      </button>
+      <button id="save-rates" class="btn btn-success" data-role="tooltip" title=
+        "Select Save to Save all changes">
+        <i class="icon-hdd"></i> Save</button>
+      <% if session[:user].super_user %>
+      <button id="approve-rates" class="btn" data-role="tooltip" title=
+        "Select Approve to Approve all changes">
+        <i class="icon-hdd"></i> Approve</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="btn-toolbar span">
+    <div id="rates-loading" class="loading hide"></div>
+  </div>
+</div>

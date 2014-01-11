@@ -1,0 +1,25 @@
+<div class="well">
+  <ul id="tabs" class="nav nav-tabs">
+    <li class="active"><a href="#tma_tab" data-toggle="tab">TMA</a></li>
+    <li><a data-target="#calculation_tab" data-toggle="tab">Calculation Options</a></li>
+    <li><a data-target="#sensitivities_tab" data-toggle="tab">Sensitivities</a></li>
+    <li><a data-target="#tmes_tab" data-toggle="tab">Tariff Model Entries</a></li>
+  </ul>
+
+  <form id="tma-form">
+    <div class="tab-content container" style="overflow: visible;">
+      <div class="tab-pane active" id="tma_tab">
+        <%= render "tma" %>
+      </div>
+      <div class="tab-pane" id="calculation_tab" data-load-url="<%= calculation_options_tariff_model_areas_path %>">
+        <%= render "calculation_options" %>
+      </div>
+      <div class="tab-pane" id="sensitivities_tab">
+        <%= render "sensitivities" %>
+      </div>
+      <div class="tab-pane" id="tmes_tab" data-load-url="<%= tmes_tariff_model_areas_path %>">
+        <%= render "tmes" %>
+      </div>
+    </div>
+  </form>
+</div>

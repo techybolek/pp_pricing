@@ -1,0 +1,44 @@
+<% if @condition.errors.any? %>
+  <ul class="text-error">
+    <% @condition.errors.each do |error, message| %>
+      <li><%= PricePlan.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@rule, @condition, :html => {:class=>"form-horizontal"}) do |f| %>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", :back, :class=> "btn" %>
+    <%= f.submit "Save", :class=> "btn btn-success" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Condition code", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :condition_code, :required=> true, :class=> "span2", :maxlength=> 16 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Condition Name", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :required=> true, :class=> "span2", :maxlength=> 16 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Description", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :descriptive_text, :required=> true, :class=> "span4", :maxlength=> 60 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label "Condition Text", :class=> "control-label" %>
+    <div class="controls">
+      <%= f.text_field :condition_string, :required=> true, :maxlength=> 512 %>
+    </div>
+
+  </div>
+
+<% end %>

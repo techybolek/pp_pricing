@@ -1,0 +1,67 @@
+<% content_for(:page_title) do "Rate Results" end %>
+
+<h2>Search Rate Results</h2>
+
+<div class="well">
+
+  <form class="span5 form-horizontal search" method="get">
+    <input type="text"
+      class="input-large"
+      placeholder="Rate Result Code"
+      name="result_code"
+      value="<%=session[:rate_result_code]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Rate Result Name"
+      name="result_name"
+      value="<%=session[:rate_result_name]%>" >
+    <input type="text"
+      class="input-large"
+      placeholder="Group Code"
+      name="result_group_code"
+      value="<%=session[:rate_result_group_code]%>" >
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th/>
+        <th><%=sortable @rates, "Code", "rate_code" %></th>
+        <th><%=sortable @rates, "Name", "title" %></th>
+        <th><%=sortable @rates, "Group Code", "group_code" %></th>
+        <th><%=sortable @rates, "Precision", "precision" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rates.each do |rate| %>
+        <tr>
+	  <td>
+            <%= link_to rate_result_path(rate.rate_id),
+              method: :delete, data: { confirm: "Are you sure you want to delete this rate result?" } do %>
+              <i class="icon-trash hover"> </i>
+            <% end %>
+	  </td>
+          <td><%= link_to rate.rate_code, edit_rate_result_path(:id => rate.rate_id) %></td>
+          <td><%= link_to rate.title, edit_rate_result_path(:id => rate.rate_id)  %></td>
+          <td><%= rate.group_code %></td>
+          <td><%= rate.precision %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:rate_results, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+           options_from_collection_for_select(pagination_options, :last, :first, session[:feedback_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @rates %>
+</div>

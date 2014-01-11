@@ -1,0 +1,21 @@
+<% content_for(:page_title) do "Create TMA" end %>
+
+<h2>Create Tariff Model Area</h2>
+
+<div style="height:50px;">
+  <div class="container toolbar affix-top" data-spy="affix" data-offset-top="190">
+    <div class="btn-toolbar touching_toolbars span8 no-left-margin">
+      <div class="btn-group">
+        <%= link_to '<i class="icon-undo"></i> Back'.html_safe, :back, :class => "btn", :title => 'Cancel all changes and go back' %>
+        <button id="create-tma" class="btn btn-success" title="Create the TMA" data-save-url="<%= tariff_model_areas_path %>">
+          <i class="icon-hdd"></i> Create</button>
+      </div>
+    </div>
+    
+    <div class="btn-toolbar span">
+      <div id="tma-loading" class="loading hide"></div>
+    </div>
+  </div>
+</div>
+
+<%= render "tabs" %>

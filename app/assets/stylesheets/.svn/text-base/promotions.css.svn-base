@@ -1,0 +1,25 @@
+/*td.promotion-period {
+  padding: 0px;
+}
+
+td.promotion-period > div.selected {
+  padding-top: 11px;
+  width: 100%;
+  border-bottom: 4px solid green;
+}
+
+td.promotion-period > div.selected:before {
+  content: '';
+  height: 10px;
+  width: 3px;
+  background: red;
+  position: absolute;
+}
+
+td.promotion-period > div.selected:after {
+  content: '';
+  height: 10px;
+  width: 3px;
+  background: yellow;
+  position: absolute;
+}*/

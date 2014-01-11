@@ -1,0 +1,27 @@
+<div class="controls controls-row">
+  <!-- Code -->
+  <div class="span">
+    <label for="service_characteristic_service_char_code">Code</label>
+    <%= text_field_tag("service_characteristic[service_char_code]", @characteristic.service_char_code, :class=>"span2", :placeholder=>"Code", :maxlength=>"5")%>
+  </div>
+  
+  <!-- Name -->
+  <div class="span">
+    <label for="service_characteristic_name">Name</label>
+    <%= text_field_tag("service_characteristic[name]", @characteristic.name, :class=>"span4", :placeholder=>"Name", :maxlength=>"60")%>
+  </div>
+  
+  <!-- Priceable Characteristic -->
+  <div class="span">
+    <label for="service_characteristic_service_characteristic">Priceable Characteristic</label>
+    <%= select_tag "service_characteristic[priceable_characteristic_id]", options_from_collection_for_select(PriceableCharacteristic.all, :priceable_characteristic_id, :name, @characteristic.priceable_characteristic_id),
+                   {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+  </div>
+</div>
+
+<div class="controls controls-row">
+  <div class="span">
+    <label for="product_descriptive_text">Description</label>
+    <%= text_area_tag 'product[descriptive_text]', @characteristic.descriptive_text, rows: 3, maxlength: 360, class: 'span9' %>
+  </div>
+</div>

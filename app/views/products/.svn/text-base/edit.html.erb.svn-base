@@ -1,0 +1,74 @@
+<% content_for(:page_title) do @product.product_code + " | Product" end %>
+
+<div class="container">
+  <div style="height:60px;">
+    <div class="affix-top" data-spy="affix" data-offset-top="128" style="z-index:999; margin: 0px auto; background-color: #F6F4F0">
+      <div class="span">
+        <h2>Product <small><%= @product.product_code %> - <%= @product.name %> - <%= alternate_status(@product.effective_status) %></small></h2>
+      </div>
+      
+      <div class="pull-right" style:"margin-left: auto;">
+        <%= render "toolbar" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  
+  <!-- Versions -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Product Overview
+    </h4>
+    <div class="collapse in">
+      <%= render "product_overview" %>
+    </div>
+  </div>
+  
+  <!-- Product Overview -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      General Product Data
+    </h4>
+    <div class="collapse in">
+      <%= render "general_product_data" %>
+    </div>
+  </div>
+  
+  <!-- Dates -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Dates
+    </h4>
+    <div class="collapse in">
+      <%= render "dates" %>
+    </div>
+  </div>
+  
+  <!-- Pricing Structures -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Pricing Structures
+    </h4>
+    <div class="collapse in">
+      <%= render "pricing_structures" %>
+    </div>
+  </div>
+  
+  
+  <!-- Services -->
+  <div class="well well-small">
+    <h4>
+      <i class="hover icon-collapse" data-toggle="collapse-next" title="Hide/Show"></i>
+      Services
+    </h4>
+    <div class="collapse in">
+      <%= render "services" %>
+    </div>
+  </div>
+</form>

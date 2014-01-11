@@ -1,0 +1,6 @@
+<% content_for(:page_title) do @rate.rate_code + " | Rate Determinant" end %>
+
+<h2>Edit Rate Determinant</h2>
+<div class="well">
+  <%= render "form" %>
+</div>

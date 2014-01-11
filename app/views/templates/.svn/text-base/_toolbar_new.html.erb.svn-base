@@ -1,0 +1,15 @@
+<div id='pptoolbar' class="container toolbar affix-top" data-spy="affix" data-offset-top="325">
+  <div class="btn-toolbar touching_toolbars span8 no-left-margin">
+    <div class="btn-group">
+      <button class="btn" id="template-back" datarole="tooltip" title="Select Cancel to Cancel all changes">
+        <i class="icon-undo"></i> Back
+      </button>
+      <button id="template-create" class="btn btn-success" data-role="tooltip" title=
+        "Select Save to Save all changes">
+        <i class="icon-hdd"></i> Create</button>
+    </div>
+  </div>
+  <div class="btn-toolbar span">
+    <div id="rates-loading" class="loading hide"></div>
+  </div>
+</div>

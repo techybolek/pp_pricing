@@ -1,0 +1,217 @@
+<form class="search">
+  <div class="controls controls-row">
+    <!-- Code -->
+    <div class="span">
+      <label for="price_plan_price_plan_code">Code</label>
+      <input id="price_plan_price_plan_code"
+             name="price_plan[price_plan_code]"
+             type="text"
+             class="span2"
+             placeholder="Code"
+             disabled="disabled"
+             value="<%= @price_plan.price_plan_code %>">
+    </div>
+    
+    <!-- Name -->
+    <div class="span">
+      <label for="price_plan_name">Name</label>
+      <input id="price_plan_name"
+             class="span4"
+             name="price_plan[name]"
+             type="text"
+             placeholder="Name"
+             disabled="disabled"
+             value="<%= @price_plan.name %>">
+    </div>
+    
+    <!-- Status -->
+    <div class="span">
+      <label for="price_plan_effective_status">Status</label>
+      <input id="price_plan_effective_status"
+             name="price_plan[effective_status]"
+             type="text"
+             class="span2"
+             placeholder="Status"
+             disabled="disabled"
+             value="<%= @price_plan.state %>">
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <!-- Release Date -->
+    <div class="span">
+      <label for="price_plan_effective_date">Release Date</label>
+      <input id="price_plan_effective_date"
+             name="price_plan[effective_date]"
+             type="text"
+             class="span2"
+             placeholder="Status"
+             disabled="disabled"
+             value="<%= @price_plan.effective_date.to_date if @price_plan.effective_date %>">
+    </div>
+    
+    <!-- Customer Number -->
+    <div class="span">
+      <label for="price_plan_customer_number">Customer Number</label>
+      <input id="price_plan_effective_date"
+             name="price_plan[effective_date]"
+             type="text"
+             class="span2"
+             placeholder="Customer Number"
+             disabled="disabled"
+             value="<%= @price_plan.customer_number %>">
+    </div>
+    
+    <!-- Supplier -->
+    <div class="span">
+      <label for="price_plan_provider_code">Supplier</label>
+      <input id="price_plan_provider_code"
+             name="price_plan[provider_code]"
+             type="text"
+             class="span2"
+             placeholder="Supplier"
+             disabled="disabled"
+             value="<%= @price_plan.provider.name %>">
+    </div>
+    
+    <!-- Late Usage -->
+    <div class="span">
+      <label for="price_plan_late_usage">Late Usage</label>
+      <input id="price_plan_separate_late_usage_ind"
+             name="price_plan[separate_late_usage_ind]"
+             type="text"
+             class="span2"
+             placeholder="Late Usage"
+             disabled="disabled"
+             value="<%= @price_plan.late_usage_description %>">
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <!-- Billing Name -->
+    <div class="span">
+      <label for="price_plan_billing_name_1">Billing Name</label>
+      <input id="price_plan_billing_name_1"
+             name="price_plan[billing_name_1]"
+             type="text"
+             class="span4"
+             placeholder="Billing Name"
+             disabled="disabled"
+             value="<%= @price_plan.billing_name_1 %>">
+    </div>
+     
+    <!-- Billing Name (alternate) -->
+    <div class="span">
+      <label for="price_plan_billing_name_2">Billing Name alternate</label>
+      <input id="price_plan_billing_name_2"
+             name="price_plan[billing_name_2]"
+             type="text"
+             class="span4"
+             placeholder="Billing Name (alternate)"
+             disabled="disabled"
+             value="<%= @price_plan.billing_name_2 %>">
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <div>
+      <!-- Maximum Selected Destinations -->
+      <div class="span">
+        <label for="price_plan_max_selected_destinations_val">Max Selected Destinations</label>
+        <input id="price_plan_max_selected_destinations_val"
+               name="price_plan[max_selected_destinations_val]"
+               type="text"
+               class="span1"
+               placeholder="Max Selected Destinations"
+               disabled="disabled"
+               value="<%= @price_plan.max_selected_destinations_val %>">
+      </div>
+    </div>
+    
+    <div class="span text-right">
+      
+      <div>
+        <div class="span2">
+          <label class="checkbox inline" for="price_plan_test_mode_ind">Test Mode</label>
+          <%= check_box_tag 'price_plan[test_mode_ind]',
+                            'Y',
+                            @price_plan.test_mode_ind == 'Y',
+                            :disabled => true %>
+        </div>
+        
+        <div class="span2">
+          <label class="checkbox inline" for="price_plan_promotion_ind">Promotional</label>
+          <%= check_box_tag 'price_plan[promotion_ind]',
+                            'Y',
+                            @price_plan.promotion_ind == 'Y',
+                            :disabled => true %>
+        </div>
+      </div>
+      
+      <div>
+        <div class="span2">
+          <label class="checkbox inline" for="price_plan_discontinue_indicator">Discontinued</label>
+          <%= check_box_tag 'price_plan[discontinue_indicator]',
+                            'Y',
+                            @price_plan.discontinue_indicator == 'Y',
+                            :disabled => true %>
+        </div>
+        
+        <div class="span2">
+          <label class="checkbox inline" for="price_plan_global_indicator">Global</label>
+          <%= check_box_tag 'price_plan[global_indicator]',
+                            'Y',
+                            @price_plan.global_indicator == 'Y',
+                            :disabled => true %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <!-- Rating Period -->
+    <div class="span3">
+      <label>Price Plan Rating Period</label>
+      <%= radio_button_tag 'price_plan[plan_period_indicator]',
+                        'N',
+                        @price_plan.plan_period_indicator == 'N',
+                        :disabled => true %>
+      <label class="checkbox inline no-left-padding" for="price_plan_plan_period_indicator_N">Bill Period</label>
+      <%= radio_button_tag 'price_plan[plan_period_indicator]',
+                        'Y',
+                        @price_plan.plan_period_indicator == 'Y',
+                        :disabled => true %>
+      <label class="checkbox inline no-left-padding" for="price_plan_plan_period_indicator_Y">Plan Period</label>
+    </div>
+    <!-- Factor -->
+      <div class="span">
+        <label for="price_plan_period_factor">Factor</label>
+        <input id="price_plan_period_factor"
+               name="price_plan[period_factor]"
+               type="text"
+               class="span1"
+               placeholder="Factor"
+               disabled="disabled"
+               value="<%= @price_plan.period_factor %>">
+      </div>
+      
+      <!-- Period -->
+      <div class="span">
+        <label for="price_plan_period_type_rd">Period</label>
+        <input id="price_plan_period_type_rd"
+               name="pprice_plan[period_type_rd]"
+               type="text"
+               class="span1"
+               placeholder="Period"
+               disabled="disabled"
+               value="<%= @price_plan.period_type_rd %>">
+      </div>
+  </div>
+  
+  <div class="controls controls-row">
+    <div class="span">
+      <label for="price_plan_descriptive_text">Description</label>
+      <textarea class="span7" id="price_plan_descriptive_text" name="price_plan[descriptive_text]" disabled="disabled"><%= @price_plan.descriptive_text %></textarea>
+    </div>
+  </div>
+</form>

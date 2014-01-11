@@ -1,0 +1,22 @@
+<table id="pstep-table" class="table table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+       <th/>
+       <th>Order</th>
+       <th>Tariff Model Area</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% ProcessStep.for_algorithm(@algorithm.algorithm_id).each do |p| %>
+      <tr>
+        <td>
+          <input type="checkbox" class="no-top-margin" name="rows[]">
+          <i class="icon-copy hover" title="Copy row" data-role="copy-rate-row"></i>
+          <i class="icon-trash hover" title="Delete row" data-role="delete-rate-row"></i>
+        </td>
+        <td><%=p.process_step_order%></td>
+        <td><%=link_to p.tariff_model_area_code, edit_tariff_model_area_path(:id => p.tma_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

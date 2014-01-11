@@ -1,0 +1,28 @@
+<table class="table table-condensed no-bottom-margin borderless">
+    <tbody>
+      <tr>
+        <th width="20%">Code</th>
+        <th width="20%">Name</th>
+        <th width="30%">Billing Name</th>
+        <th width="30%">Billing Name (Alternate)</th>
+      </tr>
+      <tr>
+        <td><%= @ttt.tariff_tier_taper_code %></td>
+        <td><%= @ttt.name %></td>
+        <td><%= @ttt.billing_name_1 %></td>
+        <td><%= @ttt.billing_name_2 %></td>
+      </tr>
+    </tbody>
+</table>
+<table class="table table-condensed borderless">
+  <tbody>
+    <tr>
+      <th width="20%">Effective Date</th>
+      <th width="80%">Description</th>
+    </tr>
+    <tr>
+      <td><%= @ttt.effective_date.to_date if @ttt.effective_date %></td>
+      <td><%= @ttt.descriptive_text %></td>
+    </tr>
+  </tbody>
+</table>

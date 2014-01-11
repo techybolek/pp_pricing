@@ -1,0 +1,24 @@
+<table class="table table-striped <%= 'hide' unless index == 0 %>" id="<%= tariff_zone.tariff_zone_code %>" data-type="zonal-component">
+  <thead>
+    <tr>
+      <th>
+        Originating Point
+      </th>
+      <th>
+        Terminating Point
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tariff_zone.zonal_components.each do |zcom| %>
+    <tr>
+      <td>
+        <%= zcom.originating_point %>
+      </td>
+      <td>
+        <%= zcom.terminating_point %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

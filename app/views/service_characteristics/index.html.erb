@@ -1,0 +1,67 @@
+<% content_for(:page_title) do "Service Characteristics" end %>
+
+<h2>Search Service Characteristics</h2>
+
+<div class="well">
+
+  <form class="span12 form-horizontal search" method="get">
+    <input type="text"
+      placeholder="Code"
+      name="service_characteristic_code"
+      value="<%=session[:service_characteristic_code]%>" >
+    <input type="text"
+      placeholder="Name"
+      name="service_characteristic_name"
+      value="<%=session[:service_characteristic_name]%>" >
+    <%= select_tag 'service_characteristic_data_type',
+              options_from_collection_for_select(GeneralCodeItem.where(group_code: 'DATATYPE'), :value, :short_description, :selected=>session[:service_characteristic_data_type]),
+              :class => 'input-small',
+              :prompt => 'Data Type?',
+              :data => {:role => "select2"} %>
+    
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @characteristics, "Code", "service_char_code" %></th>
+        <th><%=sortable @characteristics, "Name", "name" %></th>
+        <th><%=sortable @characteristics, "Data Type", "datatype_value" %></th>
+        <th><%=sortable @characteristics, "Value Type", "value_type_ind" %></th>
+        <th><%=sortable @characteristics, "Description", "descriptive_text" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characteristics.each do |characteristic| %>
+        <tr>
+          <td><%= link_to characteristic.service_char_code, edit_service_characteristic_path(characteristic) %></td>
+          <td><%= characteristic.name %></td>
+          <td><%= characteristic.datatype_value_name %></td>
+          <td><%= characteristic.value_type_name %></td>
+          <td>
+            <% if characteristic.descriptive_text %>
+              <i class="hover icon-list-alt" tabindex="0" data-role="show-popover" data-placement="left" 
+              data-content="<%= characteristic.descriptive_text %>" ></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:service_characteristics, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:service_characteristic_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @characteristics %>
+  </div>
+</div>

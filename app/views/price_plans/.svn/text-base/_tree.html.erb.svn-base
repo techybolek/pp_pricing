@@ -1,0 +1,30 @@
+<div id="price-plan-tree" style="overflow-x: auto;">
+  <ul>
+    <li>
+      <a data-role="tree-display" data-target="#tree-details" data-source="price-plan-details" class="jstree-clicked">
+        <i class="icon-sitemap"></i> <%=@price_plan.price_plan_code%> - <%=@price_plan.name%></a>
+      <ul>
+        <li>
+          <a data-role="tree-display" data-target="#tree-details" data-source="price-plan-details">
+            <i class="icon-folder-open"></i> Selection Rules
+          </a>
+          <ul>
+            <% if @price_plan.root_selection_rule_id %>
+              <% nodes = {} %>
+              <% @price_plan.selection_rule_tree.each do |rule| %>
+                <% nodes[rule.selection_rule_id] = rule %>
+              <% end %>
+              
+              <% all_process_steps = ProcessStep.for_selection_rules( nodes.keys ) %>
+              
+              <%= render "tree_selection_rule", :nodes => nodes,
+                                                :rule => nodes[@price_plan.root_selection_rule_id],
+                                                :parent => nil,
+                                                :all_process_steps => all_process_steps %>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

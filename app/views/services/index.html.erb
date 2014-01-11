@@ -1,0 +1,89 @@
+<% content_for(:page_title) do "Services" end %>
+
+<h2>Search Services</h2>
+
+<div class="well">
+  <form class="search" method="get">
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("service_code", session[:service_code],{:placeholder=>"Service Code"})%>
+        <%= text_field_tag("service_name", session[:service_name],{:placeholder=>"Service Name"})%>
+        <%= select_tag 'provider_code',
+              options_from_collection_for_select(@suppliers, :provider_code, :name, :selected=>session[:provider_code]),
+              :class => 'input-large',
+              :prompt => 'Supplier?',
+              :data => {:role => "select2"} %>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= select_tag :technical_service_value, options_from_collection_for_select(TechnicalServiceCode.for_select_box, 'technical_service_code_name', 'technical_service_description', session[:technical_service_value]), { :prompt=>'Technical Service?', :data=>{:role=>'select2'}} %>
+        <%= select_tag :service_test_mode_ind, options_for_select([["Yes","Y"],["No","N"]], session[:service_test_mode_ind]), { :prompt=>'Test Mode?', :data=>{:role=>'select2'}} %>
+        <%= text_field_tag("service_change_group_id", session[:service_change_group_id],{:placeholder=>"Change Group ID"})%>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("postal_code", session[:postal_code],{:placeholder=>"Postal Code"})%>
+        <%= text_field_tag("service_characteristic_code", session[:service_characteristic_code],{:placeholder=>"Service Characteristic Code"})%>
+        <%= text_field_tag("service_characteristic_name", session[:service_characteristic_name],{:placeholder=>"Service Characteristic Name"})%>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("product_code", session[:product_code],{:placeholder=>"Product Code"})%>
+        <%= text_field_tag("product_name", session[:product_name],{:placeholder=>"Product Name"})%>
+        <%= text_field_tag("associated_service_code", session[:associated_service_code],{:placeholder=>"Associated Service Code"})%>
+        <%= text_field_tag("associated_service_name", session[:associated_service_name],{:placeholder=>"Associated Service Name"})%>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @services, "Code", "service.service_code" %></th>
+        <th><%=sortable @services, "Name", "service.name" %></th>
+        <th><%=sortable @services, "Status", "service.effective_status" %></th>
+        <th><%=sortable @services, "Release Date", "service.effective_date" %></th>
+        <th class="pull-right">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td><%= link_to service.service_code, edit_service_path(service.service_code, :version => service.service_version_code) %></td>
+          <td><%= link_to service.name, edit_service_path(service.service_code, :version => service.service_version_code) %></td>
+          <td><%= alternate_status(service.effective_status) %></td>
+          <td><%= service.effective_date.to_date if service.effective_status %></td>
+          <td>
+            <% if service.descriptive_text && !service.descriptive_text.empty? %>
+              <i class="hover icon-list-alt pull-right" data-role="show-popover" data-placement="left" 
+              data-content="<%= service.descriptive_text %>" data-original-title="<%= service.name %>" tabindex="0"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:services, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:service_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @services %>
+  </div>
+</div>

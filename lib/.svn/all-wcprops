@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib
+END
+corbautil.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/tapestry/!svn/ver/18220/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/corbautil.jar
+END
+ojdbc6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/ojdbc6.jar
+END
+jbossweb-service.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tapestry/!svn/ver/18915/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/jbossweb-service.jar
+END
+authenticated_system.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/tapestry/!svn/ver/18220/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/authenticated_system.rb
+END
+pluck_all.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tapestry/!svn/ver/18616/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/pluck_all.rb
+END
+api_cmd.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/tapestry/!svn/ver/18220/branches/internal/8.2.0/pgi-gui/trunk/java/pp_pricing/lib/api_cmd.rb
+END

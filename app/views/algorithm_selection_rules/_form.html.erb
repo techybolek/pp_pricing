@@ -1,0 +1,15 @@
+<% if @price_plan.errors.any? %>
+  <ul class="text-error">
+    <% @price_plan.errors.each do |error, message| %>
+      <li><%= PricePlan.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%if @rule.target_type == "C" %>
+    <%= render "condition" %>
+    <%= render "rules" %>
+<%else%>
+    <%= render "algorithm" %>
+<%end%>
+

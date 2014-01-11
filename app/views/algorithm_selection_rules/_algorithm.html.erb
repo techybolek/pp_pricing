@@ -1,0 +1,20 @@
+<% if @algorithm.errors.any? %>
+  <ul class="text-error">
+    <% @algorithm.errors.each do |error, message| %>
+      <li><%= Algorithm.human_attribute_name(error) %> - <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@algorithm, :html => {:class=>"form-horizontal"}) do |f| %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_field :name, :required=> true, :maxlength=> 30 %>
+    </div>
+  </div>
+
+  <%= render "toolbar" %>
+  <%= render "pstep_table" %>
+
+<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <title><%= yield :page_title %> | Product Portfolio</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+</head>
+<body class="grayout">
+  <div class="container" style="width: 90%;min-width: 1000px;">
+    <%= render "layouts/heading" %>
+    <%= render "layouts/alerts" %>
+    
+    <div id="full-content" class="container">
+      <%= yield %>
+    </div>
+  </div>
+  
+  
+  <footer class="footer">
+    <div class="container">
+      <p><small>Product Portfolio - Copyright &copy; <%= Time.now.year %> CGI</small></p>
+      <p><small>@@REVISION@@</small></p>
+    </div>
+  </footer>
+  <% session[:previous_path] = request.path %>
+</body>
+</html>

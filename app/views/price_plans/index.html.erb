@@ -1,0 +1,103 @@
+<% content_for(:page_title) do "Price Plans" end %>
+
+<h2>Search Price Plan</h2>
+
+<div class="well">
+
+  <form class="span12 form-horizontal search" method="get">
+    <input type="text"
+      placeholder="Price Plan Code"
+      name="price_plan_code"
+      value="<%=session[:price_plan_code]%>" >
+    <input type="text"
+      placeholder="Price Plan Name"
+      name="price_plan_name"
+      value="<%=session[:price_plan_name]%>" >
+    <%= select_tag 'price_plan_supplier_name',
+                   options_for_select(@suppliers, :selected=>session[:price_plan_supplier_name]),
+                   :class => 'input-large',
+                   :prompt => 'Supplier?',
+                   :data => {:role => "select2"} %>
+    <select class="input-large" data-role="select2" name="test_mode">
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == '' %> value="">Test Mode?</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == 'Y' %> value="Y">Yes</option>
+      <option <%= 'selected="selected"'.html_safe if session[:test_mode] == 'N' %> value="N">No</option>
+    </select>
+    <%= select_tag 'change_group_id',
+                   options_for_select(@change_groups, :selected=>session[:change_group_id]),
+                   :class => 'input-large',
+                   :prompt => 'Change Group?',
+                   :data => {:role => "select2"} %>
+    <input type="text"
+      placeholder="Associated Service Code"
+      name="price_plan_service_code"
+      value="<%=session[:price_plan_service_code]%>" >
+    <input type="text"
+      placeholder="Associated Service Name"
+      name="price_plan_service_name"
+      value="<%=session[:price_plan_service_name]%>" >
+    <input type="text"
+      placeholder="Associated TMA Code"
+      name="price_plan_tma_code"
+      value="<%=session[:price_plan_tma_code]%>" >
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%=sortable @price_plans, "Code", "price_plan_code" %></th>
+        <th><%=sortable @price_plans, "Name", "name" %></th>
+        <th><%=sortable @price_plans, "Status", "effective_status" %></th>
+        <th><%=sortable @price_plans, "Release Date", "effective_date" %></th>
+        <th><%=sortable @price_plans, "Supplier", "product_name" %></th>
+        <th><%=sortable @price_plans, "Global", "global_indicator" %></th>
+        <th><%=sortable @price_plans, "Promotion", "promotion_ind" %></th>
+        <th><%=sortable @price_plans, "Test Mode", "test_mode_ind" %></th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @price_plans.each do |pp| %>
+        <tr>
+          <td>
+            <%= link_to price_plan_path(pp.price_plan_version_id),
+              method: :delete, data: { confirm: "Are you sure you want to delete this price plan?" } do %>
+              <i class="icon-trash hover"> </i>
+            <% end %>
+          </td>
+          <td><%= link_to pp.price_plan_code, edit_price_plan_path(:id => pp.price_plan_version_id) %></td>
+          <td><%= link_to pp.name, edit_price_plan_path(:id => pp.price_plan_version_id)  %></td>
+          <td><%= pp.state %></td>
+          <td><%= pp.effective_date.to_date %></td>
+          <td><%= pp.product_name %></td>
+          <td><%= indicator pp.global_indicator %></td>
+          <td><%= indicator pp.promotion_ind %></td>
+          <td><%= indicator pp.test_mode_ind %></td>
+          <td>
+            <% if pp.descriptive_text %>
+              <i class="hover icon-list-alt" tabindex="0" data-role="show-popover" data-placement="left" 
+              data-content="<%= pp.descriptive_text %>" data-original-title="<%= pp.name %>"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:price_plans, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "amount",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:price_plan_amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @price_plans %>
+  </div>
+</div>

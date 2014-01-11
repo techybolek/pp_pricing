@@ -1,0 +1,97 @@
+<% content_for(:page_title) do "ECTs" end %>
+
+<h2>Search Event Creation Templates</h2>
+
+<div class="well well-small">
+  <form class="search form-inline" method="get">
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("ect_filters[ect_code]", session[:ect_filters][:ect_code],{:placeholder=>"ECT Code"})%>
+        <%= text_field_tag("ect_filters[ect_name]", session[:ect_filters][:ect_name],{:placeholder=>"ECT Name"})%>
+        <%= select_tag 'ect_filters[effective_status]',
+              options_for_select([["Active","ACTIVE"],["Approved","APPRVD"],["Draft","DRAFT"]], session[:ect_filters][:effective_status]),
+              :class => 'input-large',
+              :prompt => 'Status',
+              :data => {:role => "select2"} %>
+        
+        <label>
+          <%= check_box_tag 'ect_filters[search_all_versions]', true, session[:ect_filters][:search_all_versions] %>
+          Include all Versions
+        </label>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= select_tag 'ect_filters[usage_mode_value]',
+              options_from_collection_for_select( GeneralCodeItem.where(group_code: 'USAGE_MODE'), :value, :short_description, :selected=>session[:ect_filters][:usage_mode_value]) ,
+              :prompt => 'Usage Mode',
+              :data => {:role => "select2"} %>
+        <%= select_tag "ect_filters[test_mode_ind]", options_for_select([["Yes","Y"],["No","N"]], session[:ect_filters][:test_mode_ind]), { :prompt=>'Test Mode', :data=>{:role=>'select2'}} %>
+        <%= text_field_tag("ect_filters[change_group_id]", session[:ect_filters][:change_group_id],{:placeholder=>"Change Group ID"})%>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <div class="span no-left-margin">
+        <%= text_field_tag("ect_filters[associated_service_code]", session[:ect_filters][:associated_service_code],{:placeholder=>"Associated Service Code"})%>
+        <%= text_field_tag("ect_filters[associated_service_name]", session[:ect_filters][:associated_service_name],{:placeholder=>"Associated Service Name"})%>
+        <%= select_tag "ect_filters[charge_occurrence_type]", options_for_select([["One Time","OT"],["Recurring","RC"]], session[:ect_filters][:charge_occurrence_type]), { :prompt=>'Charge Occurrence', :data=>{:role=>'select2'}} %>
+      </div>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn" type="button" data-role="clear-form"><i class="icon-remove"></i></button>
+      <button type="submit" class="btn"><i class="icon-search"></i></button>
+    </div>
+  </form>
+</div>
+
+
+<div class="well">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%=sortable @ects, "Code", "ect.code" %></th>
+        <th><%=sortable @ects, "Name", "ect.name" %></th>
+        <th><%=sortable @ects, "Status", "ect.effective_status" %></th>
+        <th><%=sortable @ects, "Effective Date", "ect.effective_date" %></th>
+        <th><%=sortable @ects, "Service Name", "s.name" %></th>
+        <th><%=sortable @ects, "Usage Mode", "gci.short_description" %></th>
+        <th><%=sortable @ects, "Charge Occurrence", "ect.charge_occurrence_type" %></th>
+        <th><%=sortable @etcs, "Description", "ect.descriptive_text" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ects.each do |ect| %>
+        <tr>
+          <td><%= link_to ect.code, edit_event_creation_template_path(ect) %></td>
+          <td><%= link_to ect.name, edit_event_creation_template_path(ect) %></td>
+          <td><%= ect.effective_status %></td>
+          <td><%= nullable_date ect.effective_date.to_date %></td>
+          <td><%= ect.service_name %></td>
+          <td><%= ect.usage_mode_name %></td>
+          <td><%= ect.charge_occurrence_name %></td>
+          <td>
+            <% if ect.descriptive_text && !ect.descriptive_text.empty? %>
+              <i class="hover icon-list-alt" data-role="show-popover" data-placement="top"
+              data-content="<%= ect.descriptive_text %>" data-original-title="<%= ect.name %>" tabindex="0"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="table-footer span3">
+      <%= form_tag({:controller=>:products, :action=>:index}, :method=>:get) do %>
+        <%= select_tag( "product_filters[amount]",
+                        options_from_collection_for_select(pagination_options, :last, :first, session[:product_filters][:amount]),
+                        :class => "input-mini",
+                        data: {role: "pagination-amount"} )%>
+      <% end %>
+    </div>
+    <%= paginate @ects %>
+  </div>
+</div>

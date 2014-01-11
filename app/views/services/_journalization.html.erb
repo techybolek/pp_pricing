@@ -1,0 +1,16 @@
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Event Category</th>
+    <th>Accounting Code</th>
+  </tr>
+  
+  <% @service.journalization.each do |journal| %>
+    <tr>
+      <td>
+        <%= select_tag "service[event_category_rd]", options_for_select(GeneralCodeItem.where(group_code: 'EVT_TX_CAT').pluck(:value), journal.event_category_rd),
+                     {:class=>"span3 no-left-margin", data: {:role => "select2"}} %>
+      </td>
+      <td><%= journal.accounting_code_string %></td>
+    </tr>
+  <% end %>
+</table>

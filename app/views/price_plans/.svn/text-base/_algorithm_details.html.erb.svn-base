@@ -1,0 +1,44 @@
+<% process_steps = rule.process_steps %>
+<div class="hide" id="<%= rule.selection_rule_id %>">
+  <table class="table table-condensed borderless">
+    <tr>
+      <th width="35%">Name</th>
+      <th width="65%">Description</th>
+    </tr>
+    <tr>
+      <td><%= rule.name %></td>
+      <td><%= rule.description %></td>
+    </tr>
+  </table>
+  <h4>Process Steps</h4>
+  <table class="table table-condensed borderless table-hover">
+    <thead>
+      <tr>
+        <th>Order</th>
+        <th>Calculation</th>
+        <th>Type</th>
+        <th>Add/Rep</th>
+        <th>Rate Ind</th>
+        <th>TMA</th>
+        <th>TMA Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% process_steps.each do |step| %>
+        <tr>
+          <td><a data-role="tree-display" data-target="#tree-details" data-source="<%=step.process_step_id%>"><%= step.process_step_order %></a></td>
+          <td><a data-role="tree-display" data-target="#tree-details" data-source="<%=step.process_step_id%>"><%= step.calculation_name %></a></td>
+          <td><%= find_calculation_type_indicator(step.calculation_type_indicator) %></td>
+          <td><%= step.add_replace_indicator %></td>
+          <td><%= find_rate_effective_indicator(step.rate_effective_indicator) %></td>
+          <td><%= step.tariff_model_area_code %></td>
+          <td><%= step.tariff_model_area_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% process_steps.each do |step| %>
+  <%= render "process_step_details", :step => step %>
+<% end %>

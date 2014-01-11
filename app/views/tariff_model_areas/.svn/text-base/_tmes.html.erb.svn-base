@@ -1,0 +1,129 @@
+<% tmes = @tma.tmes %>
+
+<table class="table table-striped table-hover table-condensed">
+  <% if tmes.length > 0 %>
+    <tr>
+      <th class="hide">tariff_model_entry_id</th>
+      <% if tmes.first[:zonal_coverage] %>
+        <th data-override="tariff_zone_code">Zonal Coverage</th>
+      <% end %>
+      
+      <% if tmes.first[:tariff_week] %>
+        <th data-override="tariff_time_code">Tariff Time</th>
+      <% end %>
+      
+      <% if tmes.first[:sensitivity] %>
+        <th data-override="sdc_code">Sensitivity</th>
+      <% end %>
+      
+      <% if tmes.first[:band_min] %>
+        <th data-override="band_sequence">Band</th>
+      <% end %>
+      
+      <% if tmes.first[:service_group] %>
+        <th data-override="service_group_code">Service Group</th>
+      <% end %>
+      
+      <% tmes.first.calculation_options.each do |calculation| %>
+        <th data-override="calculation_option_<%=calculation.calculation_option_id%>">
+          <%= calculation.calculation_option_name %>
+        </th>
+      <% end %>
+      
+      <th data-override="billing_name_1">
+        Billing Name
+      </th>
+    </tr>
+    
+    <% tmes.each do |tme| %>
+      <tr>
+        
+        <td class="hide"><%= tme.tariff_model_entry_id || "new_tme" %></td>
+        
+        <% if tme[:zonal_coverage] %>
+          <td data-override="<%=tme.tariff_zone_code%>"><%= tme.zonal_coverage %></td>
+        <% end %>
+        
+        <% if tme[:tariff_week] %>
+          <td data-override="<%=tme.tariff_time_code%>"><%= tme.tariff_week %></td>
+        <% end %>
+        
+        <% if tme[:sensitivity] %>
+          <td data-override="<%=tme.sdc_code%>"><%= tme.sensitivity %></td>
+        <% end %>
+        
+        <% if tme[:band_min] %>
+          <td data-override="<%=tme.band_sequence%>">
+            <%= tme.band_min.to_i %> - 
+            
+            <% if tme.band_max == 0 %>
+              <span style="font-size: 25px;">∞</span>
+            <% else %>
+              <%= tme.band_max.to_i %>
+            <% end %>
+          </td>
+        <% end %>
+        
+        <% if tme[:service_group] %>
+          <td data-override="<%=tme.service_group_code%>"><%= tme.service_group %></td>
+        <% end %>
+        
+        <% tme.calculation_options.each do |calculation| %>
+          <td data-override="<%= calculation.value_or_default %>">
+            <a data-name="calculation_options[][<%= calculation.calculation_option_id %>]"
+               data-role="editable"
+               data-value="<%= calculation.value_or_default %>">
+               <%= calculation.value_or_default %>
+            </a>
+          </td>
+        <% end %>
+        
+        <td data-override="<%= tme.billing_name_1 %>">
+          <a data-name="billing_name_1"
+             data-role="editable"
+             data-value="<%= tme.billing_name_1 %>">
+             <%= tme.billing_name_1 %>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  <% elsif @tma.calculation_id %>
+    <!-- There are no Sensitivities, list calculation options and be done -->
+    <tr>
+      <th class="hide">tme</th>
+      
+      <% @tma.tme_calculation_options.each do |calculation| %>
+        <th data-override="calculation_option_<%=calculation.calculation_option_id%>">
+          <%= calculation.calculation_option_name %>
+        </th>
+      <% end %>
+        
+      <th data-override="billing_name_1">
+        Billing Name
+      </th>
+    </tr>
+    
+    <tr>
+      <td class="hide">no_tme</td>
+      <% @tma.tme_calculation_options.each do |calculation| %>
+        <td data-override="<%= calculation.value_or_default %>">
+          <a data-name="calculation_options[][<%= calculation.calculation_option_id %>]"
+             data-role="editable"
+             data-value="<%= calculation.value_or_default %>">
+             <%= calculation.value_or_default %>
+          </a>
+        </td>
+      <% end %>
+      
+      <td data-override="">
+        <a data-name="billing_name_1"
+           data-role="editable">
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<% if tmes.empty? && !@tma.calculation_id %>
+No TMEs for the selected calculation and sensitivities.
+<% end %>

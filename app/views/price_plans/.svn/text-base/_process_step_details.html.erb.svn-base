@@ -1,0 +1,162 @@
+<div class="hide" id="<%= step.process_step_id %>">
+  <form class="search">
+    
+    <div class="controls controls-row">
+      <!-- Order -->
+      <div class="span">
+        <label>Order</label>
+        <input name="process_step[order]"
+             type="text"
+             class="span"
+             disabled="disabled"
+             placeholder="Step Order"
+             value="<%= step.process_step_order %>">
+      </div>
+      
+      <!-- Type -->
+      <div class="span3">
+        <label>Type</label>
+        <select name="type" data-role="select2" disabled="disabled">
+          <option <%= 'selected="selected"'.html_safe if step.calculation_type_indicator == 'D' %> value="D">Detail</option>
+          <option <%= 'selected="selected"'.html_safe if step.calculation_type_indicator == 'S' %> value="S">Summarize</option>
+        </select>
+      </div>
+      
+      <!-- Add/Replace Indicator -->
+      <div class="span">
+        <label>Add/Replace Indicator</label>
+        <select name="add/replace indicator" data-role="select2" disabled="disabled">
+          <option <%= 'selected="selected"'.html_safe if step.add_replace_indicator == 'A' %> value="A">Add Results</option>
+          <option <%= 'selected="selected"'.html_safe if step.add_replace_indicator == 'R' %> value="R">Replace Results</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <!-- Calculate Mileage -->
+      <div class="span3">
+        <label>Calculate Rate Center Mileage</label>
+        <%= check_box_tag 'process_step[calculate_rate]',
+                          'Y',
+                          step.calculate_mileage_ind == 'Y',
+                          :disabled => true %>
+      </div>
+      
+      <!-- Rate Effective Date -->
+      <div class="span">
+        <label>Rate Effective Date Indicator</label>
+        <select name="rate effective date" data-role="select2" disabled="disabled">
+          <option <%= 'selected="selected"'.html_safe if step.rate_effective_indicator == 'I' %> value="I">Event Start</option>
+          <option <%= 'selected="selected"'.html_safe if step.rate_effective_indicator == 'F' %> value="F">Event End</option>
+          <option <%= 'selected="selected"'.html_safe if step.rate_effective_indicator == 'S' %> value="S">Bill Cycle Start</option>
+          <option <%= 'selected="selected"'.html_safe if step.rate_effective_indicator == 'E' %> value="E">Bill Cycle End</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <!-- Tariff Model Area -->
+      <div class="span bottom-padding">
+        <label>Tariff Model Area</label>
+        <a href="<%= edit_tariff_model_area_path(step.tariff_model_area_version_id) %>">
+          <%= step.tariff_model_area_code %> - <%= step.tariff_model_area_name %>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Description of Process Step -->
+    <div class="controls controls-row">
+      <div class="span">
+        <label>Description of Process Step</label>
+        <textarea class="span7" name="process_step[descriptive_text]" disabled="disabled"><%= step.descriptive_text %></textarea>
+      </div>
+    </div>
+    
+    <div class="controls controls-row">
+      <!-- Calculation (and description of calculation)-->
+      <div class="span">
+        <label>Calculation <i class="hover icon-list-alt" data-role="show-popover" data-placement="top" 
+          data-content="<%= step.calculation_descriptive_text %><%= '(no description)' if step.calculation_descriptive_text == '' %>"
+          data-original-title="<%= step.calculation_name %>" tabindex="0"></i>
+        </label>
+        <input name="process_step[calculation]"
+             type="text"
+             class="span"
+             placeholder="Calculation"
+             disabled="disabled"
+             value="<%= step.calculation_name %>">
+      </div>
+      
+      <!-- Flexible Summmary Group -->
+      <div class="span">
+        <label>Flexible Summary Group</label>
+        <input name="process_step[flexible_summary_group]"
+             type="text"
+             class="span"
+             placeholder="Flexible Summary Group"
+             disabled="disabled"
+             value="<%= find_summary_group(step.summary_group_id) %>">
+      </div>
+    </div>
+    
+    <hr />
+    
+    <!-- Flexible Summary Attributes -->
+    <div class="controls controls-row">
+      <div class="span">
+        <h4>Flexible Summary Attributes</h4>
+        <table class="table table-striped">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+          </tr>
+          <% attributes = step.attributes %>
+          <% attributes.each do |attr| %>
+            <tr>
+              <td><%= attr.attribute_id %></td>
+              <td><%= attr.name %></td>
+            </tr>
+          <% end %>
+          <% if attributes.size == 0 %>
+            <tr>
+              <td>None</td>
+              <td></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Explicit Links -->
+    <div class="controls controls-row">
+      <div class="span">
+        <h4>Explicit Links</h4>
+        <table class="table table-striped">
+          <tr>
+            <th>Algorithm</th>
+            <th>Order</th>
+            <th>Calculation</th>
+            <th>Link Type</th>
+          </tr>
+          <% explicit_links = step.explicit_links %>
+          <% explicit_links.each do |link| %>
+            <tr>
+              <td><%= link.algorithm_name %></td> 
+              <td><%= link.process_step_order %></td>
+              <td><%= link.calculation_name %></td>
+              <td><%= find_link_kind(link.link_kind) %></td>
+            </tr>
+          <% end %>
+          <% if explicit_links.size == 0 %>
+            <tr>
+              <td>None</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>

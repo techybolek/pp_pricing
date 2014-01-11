@@ -1,0 +1,31 @@
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Requires</th>
+    <th>Is Required By</th>
+    <th>Owns</th>
+    <th>Is Owned By</th>
+    <th>Excludes</th>
+    <th>Description</th>
+  </tr>
+  
+  <% @service.associated_services.each do |service| %>
+    <tr>
+      <td><%= link_to service.service_code, edit_service_path(service.service_code, :version => service.service_version_code) %></td>
+      <td><%= service.name %></td>
+      <td><%= service.requires_indicator %></td>
+      <td><%= service.is_required_indicator %></td>
+      <td><%= service.owns_indicator %></td>
+      <td><%= service.is_owned_indicator %></td>
+      <td><%= service.excludes_indicator %></td>
+      <td><i class="icon-list-alt"
+             data-role="show-popover"
+             data-placement="left"
+             data-content="<%= service.descriptive_text %>"
+             tabindex="0"
+             data-title="<%= service.name %>"></i>
+      </td>
+    </tr>
+  <% end %>
+</table>
